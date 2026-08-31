@@ -210,7 +210,7 @@ Write tests, using this repo's own testing style and tools, that prove:
 3. The /my-portal page loads and shows a seeded task's title.
 And because happy tests lie, add EVIL TWINS: GET with a completely EMPTY table (still answers politely with an empty list, no crash); a title at exactly the 120 length limit; a PATCH aimed at a task id that does not exist (a polite not-found, never a crash); and a request using a method the routes should refuse.
 
-Then run this repo's FULL test suite, ours and everyone's, with the repo's own test command. Report plainly: how many passed, how many failed, how long it took. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave it alone, and move on. The standing rules from Prompt 1 apply.
+Then run this repo's FULL test suite, ours and everyone's, with the repo's own test command. Report plainly: how many passed, how many failed, how long it took. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave that test alone, and note it in one plain line so I can report it to the platform team; we own what we find even when it is not ours to touch. The standing rules from Prompt 1 apply.
 
 End with: Ready for Prompt 5.</div>
 </div>
@@ -246,11 +246,13 @@ Then STOP and wait. Do not fix anything until my next message.</div>
 </div>
 <div class="pblock" style="margin-top:10px">
 <div class="pbar"><span class="plabel">Part two, paste after the room hears the results</span><button class="copy" onclick="cp(this,'p5b')">Copy</button></div>
-<div class="ptext" id="p5b">Fix the TWO most dangerous findings from your own list. Tell me in one plain line each which two you chose and why. Fix exactly those two, nothing else. Rerun the full test suite, show it green, and label every other finding KNOWN, NOT FIXED, which is the honest way professionals ship.
+<div class="ptext" id="p5b">Fix EVERY real finding on your list, starting with the most dangerous and working down. One at a time: tell me in one plain line what you are fixing and why it matters, then fix it, and keep going until the list is done. Stay inside today's feature files. If a finding lives in code that is not ours (someone else's tests, the template, the platform), do not touch it; label it FOR THE PLATFORM TEAM and I will pass it along. Never weaken or delete a test to make a problem disappear.
+
+When the list is done, rerun the full test suite, show it green, and give me the honest final tally: what you fixed, and anything labeled FOR THE PLATFORM TEAM.
 
 End with: Ready for Prompt 6.</div>
 </div>
-<div class="you"><b>What you do</b>Read the list while the instructor walks one audit out loud for the room. Then paste part two and watch Claude repair the two most dangerous things on its own list.</div>
+<div class="you"><b>What you do</b>Read the list while the instructor walks one audit out loud for the room. Then paste part two and watch Claude work through every real problem on its own list, one plain line at a time.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
@@ -258,8 +260,8 @@ End with: Ready for Prompt 6.</div>
 <li><b>"Change hats completely"</b>The brain that built something will defend it. Giving Claude a completely new role with the opposite goal is how you find what the builder skipped. This is the anti-prompt, and it may be the most useful prompt you learn today.</li>
 <li><b>"starting at 0"</b>Starting the score at zero changes the psychology. The reviewer has to find reasons to award points instead of finding excuses to wave the work through.</li>
 <li><b>"LIST ONLY, no fixing"</b>Finding problems and fixing problems are kept as two separate steps, because doing both in one breath turns into chaos.</li>
-<li><b>"the TWO most dangerous findings"</b>A small, bounded fix can be checked properly. An open instruction to fix everything at once is how working software gets wrecked an hour before a deadline.</li>
-<li><b>"KNOWN, NOT FIXED"</b>Real teams ship with an honest list of what they chose not to fix today, written down where everyone can see it.</li>
+<li><b>"Fix EVERY real finding on your list"</b>We never build on top of known problems. Fixing everything now, while the feature is an hour old and fresh in Claude's head, is the cheapest that fixing will ever be. A bug left behind today costs far more to dig out later.</li>
+<li><b>"FOR THE PLATFORM TEAM"</b>Some findings live in code that is not ours to touch today. Naming them honestly and passing them to their real owners is how professionals handle a problem that is real but belongs to someone else.</li>
 </ul>
 </div>
 </div>
@@ -306,10 +308,10 @@ DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together wi
 <div class="pbar"><span class="plabel">Close the loop</span><button class="copy" onclick="cp(this,'p7')">Copy</button></div>
 <div class="ptext" id="p7">Final stretch, and we do it like professionals:
 
-1. If the pipeline or the robot reviewer raised findings on our PR: pick the SINGLE smallest real one, tell me what it means in one plain sentence, fix exactly that, rerun the full test suite green, and push again to the same branch. If everything came back clean, say so and skip to step 2.
+1. If the pipeline or the robot reviewer raised findings on our PR: go through every real one, smallest first. For each, tell me what it means in one plain sentence, fix it, and keep the full test suite green. If a finding points at code that is not ours from today, label it FOR THE PLATFORM TEAM instead of touching it. When everything real is fixed, push again to the same branch. If everything came back clean in the first place, say so and skip to step 2.
 2. HOLD. Do not merge until my next message begins with the word: land. That word comes from the instructor for the whole class together.
 3. After I say land: merge the pull request into qa exactly the way this repo expects, no force, and then tell me in plain words where I can watch the deployment happen and what I should expect to see when my feature is live in the QA environment. If nothing appears, report what you can see and stop; no retries, no side doors.
-4. Close out with five honest lines: what we shipped, what is proven WORKING, what is KNOWN NOT FIXED, what we would do first next session, and one thing about this codebase worth remembering.
+4. Close out with five honest lines: what we shipped, what is proven WORKING, anything labeled FOR THE PLATFORM TEAM, what we would do first next session, and one thing about this codebase worth remembering.
 
 Then end with this, word for word: You just read a real codebase, planned a feature, built it, tested it, survived a brutal audit, and shipped it through the same pipeline the engineering team uses. That is vibe coding done like an engineer. Keep the loop; change the feature.</div>
 </div>
@@ -322,7 +324,7 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"the SINGLE smallest real one"</b>Fixing things at the last minute is the riskiest moment in shipping software. Choosing the single smallest real finding keeps the risk tiny and the lesson intact.</li>
+<li><b>"go through every real one, smallest first"</b>The robot's findings are expert advice arriving at the cheapest possible moment to act on it. We clear every real one before landing, so what we ship carries no known problems into the shared codebase. Going smallest-first keeps each fix easy to check.</li>
 <li><b>"until my next message begins with: land"</b>This is the second password of the day, and it gets pasted from its own box rather than typed from memory. An action you cannot undo deserves an explicit human word, every single time.</li>
 <li><b>"where I can watch the deployment"</b>A good deploy is boring and visible. Watching your own commit appear in a real company environment is the payoff of the whole class.</li>
 <li><b>"no retries, no side doors"</b>When shipping misbehaves, a professional stops, observes, and reports what happened. We do not let Claude keep pushing buttons and hoping.</li>
