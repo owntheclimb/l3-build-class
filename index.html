@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ship Real Software - L3 Session 3</title>
+<style>
+:root{--paper:#FAF9F6;--ink:#16181A;--muted:#5C6166;--line:#E4E1DA;--accent:#0B6E86;--accent-soft:#EAF3F5;--card:#FFFFFF;--warn:#8A6A2F;--warn-soft:#F5EEE4;--good:#2F6E3C}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;padding:48px 24px 96px}
+.wrap{max-width:1080px;margin:0 auto}
+header{margin-bottom:36px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+h1{font-size:34px;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:16px;color:var(--muted);max-width:720px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin:24px 0}
+.box h2{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.box ol,.box ul{margin-left:20px}
+.box li{font-size:15px;margin:7px 0}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin-bottom:24px}
+.step-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.num{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+.step h3{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.badge{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.badge.warn{background:var(--warn-soft);color:var(--warn)}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+@media(max-width:920px){.duo{grid-template-columns:1fr}}
+.pblock{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px}
+.pbar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper)}
+.plabel{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.copy{font-size:13px;font-weight:600;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:8px;padding:7px 16px;cursor:pointer;transition:all .15s}
+.copy:hover{background:var(--accent);color:#fff}
+.copy.done{background:var(--accent);color:#fff}
+.ptext{padding:16px 18px;font-size:13.5px;line-height:1.6;color:#2A2E33;white-space:pre-wrap;border-top:1px solid var(--line);background:var(--card);font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.explain{background:var(--accent-soft);border:1px solid #D5E6EA;border-radius:12px;padding:16px 18px;margin-top:12px;position:sticky;top:16px}
+.explain h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.explain ul{list-style:none}
+.explain li{font-size:13px;margin:0 0 11px;color:#28414A}
+.explain b{display:block;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:11.5px;color:var(--accent);font-weight:600;margin-bottom:2px;overflow-wrap:anywhere}
+footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
+@media(max-width:600px){body{padding:24px 12px 64px}.step{padding:20px 16px}h1{font-size:26px}.explain{position:static}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site" style="display:flex;gap:8px;margin:0 0 18px"><a href="index.html" aria-current="page" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#16181D;background:#fff;box-shadow:0 10px 24px rgba(2,4,8,.08);padding:7px 14px;border-radius:999px;border:1px solid rgba(22,24,29,.08)">The Prompts</a><a href="product.html" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#8A8E98;padding:7px 14px;border-radius:999px;border:1px solid rgba(22,24,29,.08)">The Product</a><a href="vocab.html" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#8A8E98;padding:7px 14px;border-radius:999px;border:1px solid rgba(22,24,29,.08)">The Vocabulary</a></nav>
+
+<div class="wrap">
+<header>
+<div class="kicker">Level 3 &middot; Session 3</div>
+<h1>Ship Real Software</h1>
+<p class="lede">Seven prompts, run in order, on your own playground repo. By the end you will have taken a feature through the full professional loop: read the codebase, plan, build, test, audit, open a pull request, and watch the company pipeline judge your work. The panel beside each prompt explains WHY it is written the way it is; that anatomy is the real lesson.</p>
+</header>
+
+<div class="box">
+<h2>Before Prompt 1 (two minutes)</h2>
+<ol>
+<li>Open a terminal on your playground machine and go to YOUR repo folder: <code>cd $HOME\Herd\playground-l3-&lt;yourname&gt;</code> (one command per line in this shell; no &amp;&amp; chaining).</li>
+<li>Start Claude Code with <code>claude</code> from INSIDE that folder. The folder you start in is the project root; wrong root means blocked file tools.</li>
+<li>When installs or edits ask for permission inside this repo, accept them; this is your sandbox. Anything asking to touch files OUTSIDE the repo, or any Windows admin prompt: the answer is No.</li>
+<li>One task at a time. While Claude works, watch it work; read what it says it is doing. That narration is half the class.</li>
+<li>If a git command triggers a browser sign-in, complete it in the browser and come back. Never let a terminal sit on a hidden prompt.</li>
+</ol>
+</div>
+
+<!-- STEP 1 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 1</span><h3>Read the Codebase</h3><span class="badge warn">Unskippable</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Recon</span><button class="copy" onclick="cp(this,'p1')">Copy</button></div>
+<div class="ptext" id="p1">You are a senior Laravel engineer joining this codebase today. Before writing anything, read the repository and give me a briefing of at most 14 lines:
+
+1. Framework and version, and how this app is served locally.
+2. What the company template gives us for free: where authentication and SSO are wired (mark them OFF LIMITS, we never touch them), what built-in pages or dashboards exist, where application logs live.
+3. Where things go: routes, controllers or actions, models, migrations, views or pages, tests. One line each, with real paths from THIS repo.
+4. The conventions you observed: naming style, how existing migrations and tests are written, anything a new engineer must imitate.
+5. The exact command this repo uses to run its test suite, found from its own files, not guessed.
+6. Which database engine this app talks to, by NAME ONLY from config; never print credentials or connection strings.
+7. Three things a new engineer should NOT touch in this repo, with one reason each.
+
+Rules: read only, change nothing, install nothing. If something is unknowable from the repo, say NOT FOUND rather than guessing. End with: WHAT YOU DO NOW: one line telling me to read your briefing out loud to myself, then paste PROMPT 2.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"You are a senior Laravel engineer joining..."</b>Role framing is not decoration. It selects which patterns the model reaches for: a "senior engineer" reads before writing and respects conventions; an unframed model starts inventing.</li>
+<li><b>"at most 14 lines"</b>A hard cap forces prioritization. Unbounded summaries bury the load-bearing facts in filler.</li>
+<li><b>"mark them OFF LIMITS"</b>You declare the blast radius BEFORE any work exists. The AI now carries that boundary through the whole session.</li>
+<li><b>"with real paths from THIS repo"</b>Anchoring every claim to a path makes hallucination visible: a fake path fails the moment you look.</li>
+<li><b>"found from its own files, not guessed"</b>Models trained on the whole internet will happily give you the GENERIC Laravel answer. You want THIS repo's answer.</li>
+<li><b>"say NOT FOUND rather than guessing"</b>You are teaching the honesty contract early. It pays off in every later prompt.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 2</span><h3>Plan Before Code</h3><span class="badge warn">Unskippable</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">The Feature Plan</span><button class="copy" onclick="cp(this,'p2')">Copy</button></div>
+<div class="ptext" id="p2">We are building one small real feature: a SUGGESTION BOX for shop-floor and office improvement ideas. PLAN ONLY in this step. Do not create or modify any file yet.
+
+The feature, exactly:
+- One migration creating a suggestions table: id, title (string, max 120), details (text, nullable), submitted_by (string, a person's name), status (string, default "new"), timestamps.
+- One model with a factory.
+- One seeder inserting five realistic SAMPLE suggestions with fictional names only; wire it so the repo's normal seed command runs it.
+- One JSON endpoint: GET /api/suggestions returning all suggestions newest first.
+- One simple page at /suggestions listing them in a clean table: title, submitted by, status, date. Follow this repo's existing page and styling conventions from your Prompt 1 recon; do not invent a new design system.
+- Feature tests covering the endpoint and the page.
+
+Your plan, in this exact structure, then STOP and WAIT for my approval:
+FILES I WILL CREATE: each with a one-line purpose.
+FILES I WILL TOUCH: each with the one line I am adding and why (routes files count).
+TESTS I WILL WRITE: named, one line each on what they prove.
+RISKS: the 2 or 3 most likely ways this goes wrong in THIS repo.
+OUT OF SCOPE: authentication, SSO, CI and pipeline files, other tables, new composer or npm packages. If the plan seems to need a new package, flag it as a risk instead of adding it.
+
+Do not begin building until I reply with the word: approved.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"PLAN ONLY... Do not create or modify"</b>The single biggest quality lever in AI coding. A model that plans first exposes its misunderstandings while they are still free to fix.</li>
+<li><b>"The feature, exactly:"</b>We hand it the exact schema so every seat in the room converges on the same product. Vague specs are why two people who "built the same thing" have nothing in common.</li>
+<li><b>"in this exact structure"</b>A structured plan is reviewable in 60 seconds. Prose plans hide missing pieces.</li>
+<li><b>"FILES I WILL TOUCH"</b>The touch list is your diff preview. Anything not on it later is scope drift, and you get to call it out.</li>
+<li><b>"OUT OF SCOPE:"</b>Naming what we will NOT do is stronger than hoping. Especially: no new packages on a company machine.</li>
+<li><b>"until I reply with the word: approved"</b>A literal approval token. You stay the engineer; the AI stays the brilliant intern.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 3</span><h3>Build It</h3><span class="badge warn">Unskippable</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Execute the Plan</span><button class="copy" onclick="cp(this,'p3')">Copy</button></div>
+<div class="ptext" id="p3">approved. Build EXACTLY the approved plan, nothing more. Rules while you build:
+
+- Follow the conventions you reported in your recon; when in doubt, imitate the nearest existing example in this repo.
+- After each file you create or touch, one line: the path and what it is for.
+- Sample data only, fictional names only, no real company data ever.
+- Nothing outside this repo; no new packages; auth, SSO, CI, and pipeline files stay untouched.
+- If something in the plan turns out to be wrong for this repo, STOP and tell me what you found and what you recommend instead. Do not silently improvise.
+
+When the code is written: run the migration, run the seeder, then prove it with evidence, labeling every claim honestly: WORKS means you executed it and observed the result; STATICALLY VERIFIED means you read the code but did not run it; NOT TESTED means exactly that. Show me: the migration run output, the seeder run output, the route list entry for /api/suggestions and /suggestions, and a curl of the API endpoint with the JSON it returned.
+
+End with: WHAT YOU DO NOW: tell me to open the /suggestions page in my browser myself and look at it with my own eyes, then come back and paste PROMPT 4.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"approved. Build EXACTLY the approved plan"</b>The approval token opens the gate, and "exactly" closes the side doors. Drift between plan and build is where bugs breed.</li>
+<li><b>"imitate the nearest existing example"</b>The best convention document is the codebase itself. This one line prevents a foreign-looking feature.</li>
+<li><b>"STOP and tell me what you found"</b>Plans meet reality. You want a report, not a silent workaround you discover three prompts later.</li>
+<li><b>"labeling every claim honestly: WORKS..."</b>The three-label honesty system. "It works" from an AI means nothing until you know whether it RAN it or just wrote it.</li>
+<li><b>"a curl of the API endpoint"</b>Evidence, not confidence. JSON on the screen is proof; "the endpoint should work" is not.</li>
+<li><b>"open the page... with my own eyes"</b>You are the QA department. The browser check belongs to a human, always.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 4</span><h3>Tests, or the Pipeline Says No</h3><span class="badge warn">Unskippable</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Earn the Gate</span><button class="copy" onclick="cp(this,'p4')">Copy</button></div>
+<div class="ptext" id="p4">This company's pipeline rejects pull requests that are not covered by tests. Your job now: make our feature genuinely covered, using this repo's own test tooling and the exact test command you found in recon.
+
+Write feature tests that prove:
+1. GET /api/suggestions returns 200, JSON, and the seeded suggestions newest first.
+2. The /suggestions page renders and shows a seeded suggestion's title.
+3. The model factory produces valid records.
+And one EVIL TWIN for each happy path, because happy paths lie: the endpoint with an EMPTY suggestions table (still 200, empty list, no crash); a title at exactly the 120-character boundary; and a request to the endpoint with a method it should not accept.
+
+Then run the FULL test suite, not just our new tests, and report: total passing, total failing, wall time, and whether our new files are covered by the tests you wrote (show which test hits which file). If anything fails, fix our feature code or our tests until the suite is green, narrating each fix in one line. Never weaken or delete an existing test to get to green; if an existing test fails for reasons unrelated to us, report it as PRE-EXISTING and leave it.
+
+Labels as always: WORKS, STATICALLY VERIFIED, or NOT TESTED. End with: WHAT YOU DO NOW: paste PROMPT 5.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"the pipeline rejects pull requests"</b>Tests here are not homework; they are the toll gate. The company enforces coverage on both ends of the stack. This is why professionals test: the machine says no otherwise.</li>
+<li><b>"this repo's own test tooling"</b>Generic test advice produces tests the pipeline does not even run. The repo defines the game.</li>
+<li><b>"one EVIL TWIN for each happy path"</b>Every test that proves it works has a sibling that tries to break it. Empty states, boundaries, wrong methods: that is where real bugs live.</li>
+<li><b>"run the FULL test suite"</b>Your feature passing means little if you broke someone else's. The suite is the contract with the whole codebase.</li>
+<li><b>"Never weaken or delete an existing test"</b>The most tempting AI shortcut in existence, banned by name.</li>
+<li><b>"report it as PRE-EXISTING and leave it"</b>Honesty over heroics; scope discipline even in repair.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 5</span><h3>The Anti-Prompt</h3><span class="badge">The Signature Move</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Brutal Audit, List Only</span><button class="copy" onclick="cp(this,'p5')">Copy</button></div>
+<div class="ptext" id="p5">Now become a different person: a brutal principal engineer reviewing this feature before it may ship, whose reputation depends on finding what is wrong. Audit ONLY what we built this session. Score it 0 to 100, starting from 0, awarding points only for what is verifiably solid.
+
+Hunt in this order: correctness bugs (wrong data, wrong order, edge cases we missed); convention violations against this repo's own patterns; data safety (any real-looking data, anything touching tables that are not ours, any secret in code or output); test gaps (what could break tomorrow that no test would catch); and the page itself (would an engineer be embarrassed by this table's markup or naming).
+
+RULES: LIST ONLY. Do not fix anything. Number every finding, one line of WHY it matters each, most severe first. No praise, no filler. If you find nothing in a category, say CLEAN and move on.
+
+When the list is done, STOP and ask me to pick which findings to fix. I will pick at most three. Then fix EXACTLY those, most severe first, rerun the full test suite, and show it green. Touch nothing else, including findings I did not pick: report those as KNOWN, NOT FIXED.
+
+End with: WHAT YOU DO NOW: paste PROMPT 6.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"become a different person"</b>The same model that built the code will defend it. A new role with opposite incentives finds what the builder-brain skips. This is the anti-prompt: the most important prompt you will ever learn.</li>
+<li><b>"Score it 0 to 100, starting from 0"</b>Starting from zero flips the grading psychology from "find reasons to pass" to "find reasons to award."</li>
+<li><b>"LIST ONLY. Do not fix anything."</b>Finding and fixing in one breath explodes scope and buries the list. Separate the audit from the surgery.</li>
+<li><b>"I will pick at most three"</b>Bounded fixes are verifiable fixes. Unbounded fixing is how a working feature dies at 10:55.</li>
+<li><b>"report those as KNOWN, NOT FIXED"</b>An honest known-issues list beats silent perfection claims. This is what real engineering teams ship with.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- STEP 6 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 6</span><h3>Open the Pull Request</h3><span class="badge">The Real World</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Ship It to the Robots</span><button class="copy" onclick="cp(this,'p6')">Copy</button></div>
+<div class="ptext" id="p6">Time to ship the way this company ships. Steps, in order, reporting each result verbatim:
+
+1. Create a branch named feat/suggestion-box-&lt;my initials&gt; from the current branch.
+2. One commit containing our feature, message in this repo's own commit style (check the log first and imitate it).
+3. Push the branch. If a browser sign-in appears, hand it to me and wait.
+4. Open a pull request into the qa branch. If you have no tool for that, give me the exact URL to open and tell me precisely what to click. The PR description is five short lines: WHAT it adds, WHY, HOW IT IS TESTED, RISK, ROLLBACK (reverting this one commit).
+5. Then we WAIT and watch, and this is the lesson: report what the pipeline does with our PR. Does a test run start? Does a coverage check appear, and what number does it report? Does the automated reviewer leave a review, and what does it say? Quote its findings verbatim and translate each one into plain English for me.
+
+DO NOT MERGE. Merging is a decision we make together in class after reading the robot's review. If the pipeline rejects us, that is not failure, that is the system working; report the reason and we will fix it together.
+
+End with: WHAT YOU DO NOW: watch the pull request page with me until the checks finish, then we read the review out loud together.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"the way this company ships"</b>This is the moment the class stops being an exercise. Same branch flow, same pipeline, same robot reviewer your colleagues face every day.</li>
+<li><b>"imitate it" (the commit style)</b>Commit history is a public record. Matching its style is the difference between a teammate and a tourist.</li>
+<li><b>"five short lines: WHAT, WHY, HOW TESTED, RISK, ROLLBACK"</b>The PR description template that makes reviewers trust you. Rollback thinking before merge is a senior habit.</li>
+<li><b>"report what the pipeline does"</b>Coverage gates and AI reviewers judge your code within minutes. Learning to READ their feedback calmly is the actual skill.</li>
+<li><b>"DO NOT MERGE"</b>Merge is a human decision with blast radius. The robots advise; people decide.</li>
+<li><b>"that is the system working"</b>Reframing rejection as protection. The gate exists to catch us, and sometimes it will.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- STEP 7 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 7</span><h3>Land It</h3><span class="badge">Together, On the Trainer's Go</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Close the Loop</span><button class="copy" onclick="cp(this,'p7')">Copy</button></div>
+<div class="ptext" id="p7">We read the review together. Now finish like a professional:
+
+1. If the automated review or the pipeline raised findings on our PR: pick the SINGLE smallest real one, fix exactly it, rerun the full test suite green, push the same branch, and confirm the checks rerun. If everything came back clean, say so and skip to step 2.
+2. HOLD until I say the word: land. Only then merge the pull request into qa, without force, exactly as this repo's flow expects.
+3. After the merge: tell me where to watch the deployment land in the company portal, and what I should expect to see when it is live in the QA environment. If a deploy does not appear, report what you can observe and stop; no retries, no side doors.
+4. Then the honest close-out, five lines: what we shipped, what is verified WORKING in QA, what is KNOWN NOT FIXED from the audit, what a next session would do first, and the one thing about this codebase a teammate should learn from our PR.
+
+End with: WHAT YOU DO NOW: a two-line recap I can say out loud: today you read a codebase, planned, built, tested, survived a brutal audit, and shipped a feature through the same pipeline the engineering team uses. That is vibe coding done like an engineer. Keep the loop; change the feature.</div>
+</div>
+</div>
+<div class="explain">
+<h4>Why this prompt is built this way</h4>
+<ul>
+<li><b>"pick the SINGLE smallest real one"</b>Last-minute fixes are where working features die. Smallest-real keeps the risk tiny and the lesson intact.</li>
+<li><b>"HOLD until I say the word: land"</b>The second literal token of the day. Irreversible actions get explicit human words, never implied consent.</li>
+<li><b>"tell me where to watch the deployment"</b>Deploys should be boring and observable. Watching your commit surface in a real environment is the payoff moment of the whole class.</li>
+<li><b>"no retries, no side doors"</b>When shipping misbehaves, professionals observe and report; they do not jiggle the handle harder.</li>
+<li><b>"the honest close-out, five lines"</b>Every real ship ends with a truthful summary including what is NOT done. Confidence without a gaps list is how trust dies.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="box">
+<h2>If you get stuck (the unstick prompt)</h2>
+<ul>
+<li>First: is there an approval dialog hiding somewhere, or a browser sign-in waiting? Three quiet minutes is not stuck.</li>
+<li>If truly stuck, paste this: <i>"Stop. In five lines: what were you doing, what is the exact error verbatim, what have you tried, what do you need from me, and what is the smallest safe next step? Do not retry anything until I answer."</i></li>
+<li>Console errors from the browser: right-click the page, Inspect, Console tab, copy the red text, paste it to Claude with the words "this is the browser console error."</li>
+</ul>
+</div>
+
+<footer>Level 3, Session 3. The prompts are the syllabus; the explanations are the curriculum.</footer>
+</div>
+
+<script>
+function cp(btn,id){
+  var el=document.getElementById(id);
+  var t=el.innerText;
+  function done(){btn.textContent='Copied';btn.classList.add('done');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('done')},1600)}
+  function manual(){
+    var r=document.createRange();r.selectNodeContents(el);
+    var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);
+    btn.textContent='Press Ctrl+C';
+    setTimeout(function(){btn.textContent='Copy'},4000)
+  }
+  function fallback(){
+    var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy')}catch(e){ok=false}
+    document.body.removeChild(ta);
+    if(ok){done()}else{manual()}
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fallback)}else{fallback()}
+}
+</script>
+</body>
+</html>

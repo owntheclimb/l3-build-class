@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Product - L3 Session 3</title>
+<style>
+:root{--paper:#FAF9F6;--ink:#16181A;--muted:#5C6166;--line:#E4E1DA;--accent:#0B6E86;--accent-soft:#EAF3F5;--card:#FFFFFF;--warn:#8A6A2F;--warn-soft:#F5EEE4;--good:#2F6E3C;--good-soft:#EAF3EC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;padding:48px 24px 96px}
+.wrap{max-width:960px;margin:0 auto}
+header{margin-bottom:32px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+h1{font-size:34px;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:16px;color:var(--muted);max-width:700px}
+.loop{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+.loop span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.loop span b{color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin-bottom:22px}
+.card h2{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.card p{font-size:15px;margin-bottom:10px;max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:8px}
+.cell{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.cell h3{font-size:13px;font-weight:700;margin-bottom:6px}
+.cell p{font-size:13px;color:var(--muted);margin:0}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12.5px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px;white-space:pre-wrap;color:#2A2E33;margin-top:10px}
+.gate{display:flex;gap:10px;align-items:flex-start;margin:12px 0;padding:12px 14px;background:var(--accent-soft);border:1px solid #D5E6EA;border-radius:12px}
+.gate .n{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.06em;white-space:nowrap;padding-top:2px}
+.gate p{font-size:14px;margin:0}
+.note{background:var(--good-soft);border:1px solid #D3E4D7;border-radius:12px;padding:14px 16px;font-size:14px;color:#274E30;margin-top:14px}
+footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
+@media(max-width:600px){body{padding:24px 12px 64px}.card{padding:20px 16px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site" style="display:flex;gap:8px;margin:0 0 18px"><a href="index.html" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#8A8E98;padding:7px 14px;border-radius:999px;border:1px solid rgba(22,24,29,.08)">The Prompts</a><a href="product.html" aria-current="page" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#16181D;background:#fff;box-shadow:0 10px 24px rgba(2,4,8,.08);padding:7px 14px;border-radius:999px;border:1px solid rgba(22,24,29,.08)">The Product</a><a href="vocab.html" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#8A8E98;padding:7px 14px;border-radius:999px;border:1px solid rgba(22,24,29,.08)">The Vocabulary</a></nav>
+
+<div class="wrap">
+<header>
+<div class="kicker">Level 3 &middot; Session 3</div>
+<h1>What Ships Today</h1>
+<p class="lede">Not a demo, not a toy: a real feature, in your own repo on the company platform, taken through the exact loop the engineering team uses every day. The feature is deliberately small so the LOOP can be the star.</p>
+</header>
+
+<div class="loop">
+<span><b>1</b> Read the codebase</span>
+<span><b>2</b> Plan</span>
+<span><b>3</b> Build</span>
+<span><b>4</b> Test to the gate</span>
+<span><b>5</b> Brutal audit</span>
+<span><b>6</b> Pull request</span>
+<span><b>7</b> Land + deploy</span>
+</div>
+
+<div class="card">
+<h2>The feature: a Suggestion Box</h2>
+<p>Everyone builds the same small feature so the whole room converges: an improvement-ideas box where anyone can see suggestions from the floor and the office.</p>
+<div class="grid">
+<div class="cell"><h3>The data</h3><p>A suggestions table: title, details, who submitted it, status, timestamps. One migration, one model, one factory, one seeder with five sample rows.</p></div>
+<div class="cell"><h3>The API</h3><p>GET /api/suggestions returns every suggestion as JSON, newest first. A real endpoint another app could call tomorrow.</p></div>
+<div class="cell"><h3>The page</h3><p>/suggestions lists them in a clean table, styled the way THIS codebase styles pages, not the way a template generator would.</p></div>
+<div class="cell"><h3>The tests</h3><p>Feature tests for endpoint and page, plus their evil twins: the empty table, the boundary-length title, the wrong method.</p></div>
+</div>
+</div>
+
+<div class="card">
+<h2>The pipeline you will ride</h2>
+<p>The moment your pull request opens, the platform starts judging your work. This is the part most classes never show you, and it is the part that makes it real:</p>
+<div class="gate"><span class="n">GATE 1</span><p><b>The test run.</b> The pipeline executes the repo's test suite against your branch. Red suite, no ship.</p></div>
+<div class="gate"><span class="n">GATE 2</span><p><b>The coverage check.</b> This platform requires strong test coverage on both backend and frontend. Untested code is politely refused, no matter how good it looks.</p></div>
+<div class="gate"><span class="n">GATE 3</span><p><b>The robot reviewer.</b> An AI code reviewer reads your diff and leaves a review, finding by finding. We will read its verdict together, out loud, and answer it like professionals.</p></div>
+<div class="gate"><span class="n">LANDING</span><p><b>The merge and the deploy.</b> On the trainer's go, the branch merges into qa and the platform deploys it to the QA environment automatically. You watch your feature go live on company infrastructure.</p></div>
+<div class="note">If a gate rejects us live in class, nothing went wrong. That is the system doing its job, and handling a rejection calmly is a skill this class deliberately practices.</div>
+</div>
+
+<div class="card">
+<h2>Why this, and not something flashier</h2>
+<p>Last level you built a beautiful thing that lived alone on your machine. This level is about the muscle that turns AI output into software a company can actually accept: reading before writing, planning before building, testing because the gate demands it, auditing your own work brutally, and shipping through review.</p>
+<p>The feature changes next time. The loop never does. Learn the loop once and every feature after this is just a different Prompt 2.</p>
+</div>
+
+<footer>Level 3, Session 3. Keep the loop; change the feature.</footer>
+</div>
+</body>
+</html>
