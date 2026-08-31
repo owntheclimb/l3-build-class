@@ -369,6 +369,41 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 </div>
 </div>
 
+<!-- STEP 9 -->
+<div class="step">
+<div class="step-head"><span class="num">PROMPT 9</span><h3>The Beauty Pass</h3><span class="badge">Homework, pure joy</span></div>
+<div class="duo">
+<div>
+<div class="pblock">
+<div class="pbar"><span class="plabel">Part one, the plan</span><button class="copy" onclick="cp(this,'p9')">Copy</button></div>
+<div class="ptext" id="p9">POLISH ROUND, same rules as class. The portal works; now we make it feel expensive. PLAN ONLY first, in the exact shape from class: FILES, and you may touch ONLY resources/views/my-portal.blade.php, nothing else; THE LOOK, what you will change about spacing, type, color, hover, and motion, each in one plain line; TESTS, which existing tests prove nothing broke, plus one new one only if your markup changes what they check; RISKS; OUT OF SCOPE, always: endpoints, data logic, other files, new packages, build tools, and external fonts, none of those, ever.
+
+The design bar, in words: a calm, expensive page a manager would screenshot. One ivory background, the serif reserved for the hero count alone, generous whitespace, edges that line up, a hover state on everything clickable, transitions under 200 milliseconds, and one small moment of delight when the page loads or when a task lands in Done. CSS only, inside the page's own style block; system fonts only; every animation respects the reduced-motion setting.
+
+Then STOP and wait. Do not build until my next message begins with the word: approved.</div>
+</div>
+<div class="pblock" style="margin-top:10px">
+<div class="pbar"><span class="plabel">Part two, paste when the plan looks right</span><button class="copy" onclick="cp(this,'p9b')">Copy</button></div>
+<div class="ptext" id="p9b">approved. Build it: one file, exactly the plan, and after each visible change tell me in one plain line what it does for the page. When the file is done, run the tests the way class did and show them green. Then ask me for a screenshot of the page (I press Win+Shift+S, drag a box over my portal in the browser, and paste the picture here) and judge it like a brutal design reviewer: score the look alone from 0 to 100, starting at 0, and name the three weakest things you can see. Fix those three, ask me for one more screenshot, and give me the new score.
+
+Then ship it EXACTLY like class: new branch feat/portal-polish-MYNAME, one commit of only this file, push (hand me the sign-in), pull request into qa with the five-line description, and read me the robot review in plain words. Do not merge; the instructor looks first.</div>
+</div>
+<div class="you"><b>What you do</b>This one is for after class, and it is the fun one: read the plan, paste part two when it looks right, and send screenshots when Claude asks so it can judge its own design honestly. Same sign-in, same PR link, same review as class.</div>
+</div>
+<div class="explain">
+<h4>How this prompt is built</h4>
+<ul>
+<li><b>"we make it feel expensive"</b>Beauty is a requirement you can say out loud. When you name the standard, a page a manager would screenshot, the AI aims there. When you leave it unsaid, it aims at average.</li>
+<li><b>"you may touch ONLY my-portal.blade.php"</b>The whole design lives in one file, so the beauty pass has a fence around it. Inside that fence you can play as hard as you like and nothing else can break.</li>
+<li><b>"score the look alone from 0 to 100, starting at 0"</b>This is the anti-prompt trick from class, pointed at design. Fresh eyes, a score that must be earned, the weakest spots named, then fixed, then scored again.</li>
+<li><b>"ask me for a screenshot"</b>Claude cannot see your browser, so you become its eyes. Two screenshots and it can judge its own work honestly instead of imagining it.</li>
+<li><b>"CSS only... respects the reduced-motion setting"</b>Motion is seasoning: small, quick, and optional. A page that moves too much reads as cheap, and some people need it to be still.</li>
+<li><b>"ship it EXACTLY like class"</b>Every improvement travels the same road now: branch, commit, robot review, landing. That road belongs to you.</li>
+</ul>
+</div>
+</div>
+</div>
+
 <div class="box">
 <h2>If anything feels stuck</h2>
 <ul>
