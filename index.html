@@ -384,13 +384,13 @@ THE DESIGN SYSTEM, build from exactly this:
 - Spacing rhythm: pick one unit (8px) and make every gap a multiple of it. Edges align, white space is generous, columns breathe.
 - Elevation, two shadows only: a soft resting shadow (0 10px 24px rgba(2,4,8,.08)) and a deeper lift on hover (0 24px 50px rgba(2,4,8,.12)). Cards lift; nothing else casts shadows.
 - Corner radius scale: 28px for the hero header, 14px for cards, a full pill for chips and buttons.
-- Affordance: everything clickable answers the hand before the click: a hover state, a visible focus ring (0 0 0 3px rgba(14,116,144,.15)), and card actions that appear on hover or keyboard focus.
+- Affordance: everything clickable shows that it is clickable before the click: a hover state, a visible focus ring (0 0 0 3px rgba(14,116,144,.15)), and card actions that appear on hover or keyboard focus.
 - Motion: one easing curve for everything, cubic-bezier(0.25,1,0.5,1), 200 milliseconds, applied only to shadow, transform, and color. One slow exception lives below.
 - The living sky header: the header is a soft gradient that follows the real clock. Dawn blends #40548E to #7C6EA8 to #E8A87C to #F7CFA0 at 168 degrees; day runs #3D85C5 to #5FA3D6 to #A8D2EC; night runs #0A0F22 to #141C3E to #28325E. Cross-fade between them over 1.2 seconds, checked once a minute by the page's own clock. Invented weather moods are welcome; a live weather service is not, ever.
 - Honesty states: an empty column says something warm instead of showing nothing; a card that is saving dims until its request comes back.
 - Respect: every animation obeys the visitor's reduced-motion setting, switched off in one CSS block.
 
-EXTRA CREDIT, the reverse engineering rep: if you can reach the class page from this machine, open https://l3-class.vercel.app/product and read its style block to check my numbers against the source, then tell me one thing the source does that this spec left out. Reading a real page's code to extract its design system is a skill worth owning.
+EXTRA CREDIT, the reverse engineering rep: if you can reach the class page from this machine, open https://l3-class.vercel.app/product and read its style block to check my numbers against the source, then tell me one thing the source does that this spec left out. Reading a real page's code to extract its design system is a skill worth having.
 
 Now PLAN ONLY, in the exact shape from class: FILES, and you may touch ONLY resources/views/my-portal.blade.php; THE PORT, each design-system line above mapped to what you will change, one plain line each; TESTS, which existing tests prove nothing broke, plus one new one only if your markup changes what they check; RISKS; OUT OF SCOPE, always: endpoints, data logic, other files, new packages, build tools, external fonts, and any new network call.
 
@@ -407,14 +407,14 @@ Then ship it EXACTLY like class: new branch feat/portal-polish-MYNAME, one commi
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"Design tokens"</b>Professionals never sprinkle raw colors around a page. Each color is named once at the top and reused by name, so the whole design can change in one place. That named list is the design tokens.</li>
-<li><b>"Type scale"</b>A page looks calm when text comes in a few deliberate sizes instead of many accidental ones. Reserving one special font for one hero moment is exactly what makes that moment feel special.</li>
-<li><b>"Spacing rhythm"</b>When every gap is a multiple of one unit, the eye reads the page as tidy without knowing why. Most pages that "feel off" have a spacing problem, not a color problem.</li>
-<li><b>"Elevation"</b>Shadows are a language for depth: resting things sit low, hovered things lift. Two shadows used consistently look better than twenty used randomly.</li>
-<li><b>"Affordance"</b>The design word for "you can tell it is clickable". Hover states, focus rings, and actions that appear on hover are how a page answers the hand before the click.</li>
-<li><b>"one easing curve, 200 milliseconds"</b>Motion feels premium when it is short, eased the same way everywhere, and rare. The slow 1.2 second sky is the deliberate exception that makes everything else feel quick.</li>
-<li><b>"The living sky header"</b>A gradient that follows the clock is a small amount of code and an outsized amount of delight, and delight is engineering too.</li>
-<li><b>"reduced-motion"</b>Some visitors need pages to hold still. One CSS block that switches motion off is the difference between delightful and inconsiderate.</li>
+<li><b>"Design tokens"</b>Professional designers name each color once at the top of the file and then use the names everywhere, instead of pasting raw color codes all over the page. That list of names is called the design tokens, and it means you can change the entire look of the page by editing one small block.</li>
+<li><b>"Type scale"</b>A page looks calm when its text comes in a few deliberate sizes instead of many accidental ones. We use three sizes here, and we save the fancy serif font for the one big number at the top of the page, which is exactly why that number feels important when you see it.</li>
+<li><b>"Spacing rhythm"</b>When every gap on the page is a multiple of the same small number, everything lines up and the page feels tidy, even though most people could never say why. When a page feels messy, the spacing is usually the reason, and people go looking in the colors.</li>
+<li><b>"Elevation"</b>Shadows tell your eye how high something floats above the page. We use exactly two of them: a soft one for cards that are resting, and a deeper one when you hover, so hovering feels like the card rises up to meet your cursor. Two shadows used consistently look better than twenty used randomly.</li>
+<li><b>"Affordance"</b>This is the design word for being able to tell that something is clickable before you actually click it. Buttons change when you hover over them, the keyboard gets a visible ring around whatever it is focused on, and a card shows its buttons when you reach it.</li>
+<li><b>"one easing curve, 200 milliseconds"</b>Animations feel expensive when they are quick, subtle, and all move in the same way. Every animation on this page uses one curve and takes a fifth of a second. The sky is the single slow exception, and having one slow thing is part of what makes everything else feel quick.</li>
+<li><b>"The living sky header"</b>The header's colors follow the actual time of day, so the page looks different at dawn, at noon, and at night. It takes surprisingly little code, and it is the detail people remember and show their coworkers.</li>
+<li><b>"reduced-motion"</b>Some people get dizzy or distracted when a page moves, and their computer has a setting that asks pages to hold still. One small CSS block honors that setting, and including it is part of building this professionally.</li>
 </ul>
 </div>
 </div>
