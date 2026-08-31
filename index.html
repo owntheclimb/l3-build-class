@@ -52,18 +52,18 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
 <header>
 <div class="kicker">Level 3 &middot; Session 3</div>
 <h1>Ship Real Software</h1>
-<p class="lede">Seven prompts, in order. You copy, you paste, you watch, and you make the two decisions only a human gets to make. Claude does the engineering; the prompts do the teaching; the panel next to each prompt shows you how it was built so you can build your own.</p>
+<p class="lede">Today runs on seven prompts, pasted in order. You copy each one, paste it, and watch Claude do the engineering, and at two big moments the room decides together when to move. The panel beside each prompt explains how it was built, so after class you can write prompts like these for your own projects.</p>
 </header>
 
 <div class="box">
 <h2>Get set up (three minutes, follow exactly)</h2>
 <ol>
-<li>Log into your playground (the virtual computer) the same way you did last session. Cannot get in? Raise it now; that is an instructor item, not a you problem. (If your setup runs directly on your own work computer instead of a remote playground, simply skip this step; everything else today is identical.)</li>
+<li>Log into your playground (the virtual computer) the same way you did last session. If you cannot get in, tell the instructor right away and watch the shared screen while it gets sorted; getting you in is the instructor's job. (If your setup runs directly on your own work computer instead of a remote playground, simply skip this step; everything else today is identical.)</li>
 <li>Inside the playground, open the <b>Herd</b> app (Start menu, type Herd) and wait until its services show <b>green</b>. Herd is the engine that serves your app; playgrounds that restarted turned it off, and without it your app page says "can't reach this page".</li>
 <li>Now open the <b>Claude</b> app. At the top left, click <b>Code</b>.</li>
 <li>Next to the word <b>projects</b> click the <b>+</b> sign. A folder window opens. Go to your <b>Herd</b> folder and pick the folder named <code>playground-l3-yourname</code> (the one with YOUR name; the letter after playground is a lowercase L). Click Select Folder.</li>
 </ol>
-<div class="check">CHECK: the top of the window now shows <b>playground-l3-yourname</b>. If it shows anything else, or you cannot find the folder, tell the instructor now, before pasting anything. A couple of setups from last session need a two-minute finish; that is expected, not falling behind.</div>
+<div class="check">CHECK: the top of the window now shows <b>playground-l3-yourname</b>. If it shows anything else, or you cannot find the folder, tell the instructor now, before pasting anything. A couple of setups from last session still need a two-minute finish, and that is completely expected.</div>
 <div class="check">CHECK: at the bottom right of the message box it should say <b>Opus</b>. If it says something else, click it and choose Opus.</div>
 <ol start="3">
 <li>If Claude asks permission to read or edit files in this folder, say yes. If a Windows admin box ever pops up asking to make changes to the computer, the answer is <b>No</b>.</li>
@@ -93,21 +93,26 @@ YOU ARE: a senior Laravel engineer joining this codebase today. Read the reposit
 7. Three things we should never touch in here, one plain reason each.
 8. Housekeeping check, calmly: is this repo clean, or are there leftover files from earlier setup attempts (a starter-kit folder, extra notes files, anything uncommitted)? Just LIST what you find. Do not delete or move anything; we will simply build around it, and we will make sure none of it rides along when we submit our work later.
 
-RULES, for this prompt and every prompt today: read-only unless a prompt says otherwise; never print secrets; if something is unknowable say NOT FOUND instead of guessing. THE BLOCKER RULE, standing all class: if you hit a real problem you cannot solve yourself within two attempts, STOP, and give me ONE plain sentence to relay to the instructor, plus, if the fix is a simple click or a single command, walk me through it in baby steps. Never retry quietly in a loop.
+RULES, for this prompt and every prompt today: read-only unless a prompt says otherwise; never print secrets; if something is unknowable say NOT FOUND instead of guessing.
+
+THE FIX-IT-YOURSELF RULE, standing all class: when something breaks or surprises you, you own it. Diagnose it with everything this briefing taught you about this environment, change your approach as many times as you need, quietly get us back on track, and then tell me in one line what happened and what you did. The only time you stop and hand me a sentence is when the fix needs a human: a sign-in window, a permission box, starting the Herd app, the network, or the instructor. In that case give me ONE plain sentence to relay or act on, and if the fix is a simple click or a single command, walk me through it in baby steps. Never sit in a silent retry loop repeating the same failing command; change the angle instead.
+
+THE CHECKPOINT RULE, standing all class: every new prompt I paste assumes the previous step ended well. If it did not, or if anything was left half-finished, your first job is to quietly finish or repair the previous step, tell me in one line what you fixed, and then do the new prompt.
 
 End your reply with the single line: Ready for Prompt 2.</div>
 </div>
-<div class="you"><b>What you do</b>Paste, press Enter, and just read. When you see "Ready for Prompt 2," copy the next prompt.</div>
+<div class="you"><b>What you do</b>Paste the prompt, press Enter, and just read. When Claude ends with "Ready for Prompt 2," copy the next prompt.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"WHY WE ARE HERE..."</b>Every strong prompt opens with context: what is happening, why, and what the outcome should be. Claude behaves differently when it knows the mission, not just the task.</li>
-<li><b>"YOU ARE: a senior Laravel engineer"</b>A role tells the AI which habits to use. A "senior engineer" reads before writing and respects rules; an unframed AI just starts typing code.</li>
-<li><b>"at most 14 SHORT lines... plain language"</b>Limits force clarity. Without a cap you get a wall of text nobody reads.</li>
-<li><b>"mark them OFF LIMITS"</b>You set boundaries BEFORE work exists, and the AI carries them the whole session.</li>
-<li><b>"say NOT FOUND instead of guessing"</b>The honesty rule. An AI that may say "I don't know" stops inventing.</li>
-<li><b>"THE BLOCKER RULE"</b>The escape hatch: rare, controlled, human-in-the-loop. This one paragraph is why today's class does not need 40 rescue missions.</li>
+<li><b>"WHY WE ARE HERE..."</b>Every strong prompt opens with context. When Claude knows what is happening, why it matters, and what a good outcome looks like, it makes better decisions for the whole session.</li>
+<li><b>"YOU ARE: a senior Laravel engineer"</b>Giving the AI a role tells it which habits to use. A senior engineer reads the code before changing anything and respects the rules of the house, so that is who we ask Claude to be.</li>
+<li><b>"at most 14 SHORT lines... plain language"</b>A limit keeps the answer readable. Without one, you would get a wall of text that nobody in the room has time to read.</li>
+<li><b>"mark them OFF LIMITS"</b>You set the boundaries before any work exists, and Claude carries those boundaries for the rest of the session.</li>
+<li><b>"say NOT FOUND instead of guessing"</b>This is the honesty rule. An AI that is allowed to say it does not know stops inventing answers.</li>
+<li><b>"THE FIX-IT-YOURSELF RULE"</b>When something breaks, Claude diagnoses it and repairs it on its own, using everything this briefing taught it about the machine it is standing on. It only hands you a sentence when the fix truly needs a human, like a sign-in window or the instructor.</li>
+<li><b>"THE CHECKPOINT RULE"</b>Every prompt you paste quietly finishes or repairs whatever the last step left behind before starting its own work. This is how the whole room ends up in the same place, even when different machines take different little detours.</li>
 </ul>
 </div>
 </div>
@@ -146,11 +151,11 @@ Then STOP and wait. Do not build anything until my next message begins with the 
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"PLAN ONLY. Do not create or change"</b>The single biggest quality trick in AI coding: make it think before it types. Mistakes in a plan cost nothing; mistakes in code cost the afternoon.</li>
-<li><b>"The feature, exactly:"</b>We spell out the exact shape so all fifteen of us build the same thing. Vague wishes produce fifteen different apps.</li>
-<li><b>"in exactly this shape"</b>A structured plan can be checked in 60 seconds. A paragraph hides missing pieces.</li>
-<li><b>"OUT OF SCOPE, always"</b>Saying what we will NOT do protects us better than hoping.</li>
-<li><b>"until my next message begins with: approved"</b>A literal password for permission. You stay the decision-maker; the AI stays the brilliant builder. The password rides on top of the next prompt, so pasting Prompt 3 IS your yes.</li>
+<li><b>"PLAN ONLY. Do not create or change"</b>This is the biggest quality trick in AI coding: make the AI think before it types. A mistake in a plan costs nothing to fix, while a mistake in code can cost the whole afternoon.</li>
+<li><b>"The feature, exactly:"</b>We spell out the exact shape of the feature so that everyone in the room builds the same thing. A vague wish would produce fifteen different apps.</li>
+<li><b>"in exactly this shape"</b>A structured plan can be checked in about a minute. When a plan is one long paragraph, the missing pieces hide inside it.</li>
+<li><b>"OUT OF SCOPE, always"</b>Writing down what we will not touch protects us far better than hoping the AI stays away from it on its own.</li>
+<li><b>"until my next message begins with: approved"</b>The word approved works like a password for permission, and it keeps you the decision-maker. The password sits on the first line of Prompt 3, so pasting the next prompt is how you say yes.</li>
 </ul>
 </div>
 </div>
@@ -169,22 +174,22 @@ Then STOP and wait. Do not build anything until my next message begins with the 
 - After each file, one plain line: what you made and what it is for.
 - Sample data and invented names only. Nothing outside this repo folder. Nothing new installed. Login, security, and pipeline files stay untouched.
 - If any write from the page comes back blocked (a 419 or 401 style refusal), that is the repo's request protection: use this repo's own pattern for page-to-API calls (its stateless api routes, or its token header) and tell me plainly which one you used and why.
-- If the plan meets reality and something does not fit, STOP and tell me in plain words what you found and what you suggest. No silent improvising. The standing BLOCKER RULE applies.
+- If reality does not quite match the plan in some small way, adapt, stay inside the plan's boundaries, and tell me in one line what you changed and why. Only if the plan truly cannot work as approved do you stop and tell me in plain words what you found and what you suggest. The standing rules from Prompt 1 apply.
 
 When the code is written: run the database migration, run the seeder, and PROVE it, labeling every claim honestly: WORKS means you ran it and saw it; CHECKED THE CODE means you read it but did not run it; NOT TESTED means exactly that. Show me: the routes exist, a call to GET /api/portal-tasks with a piece of the JSON that came back, and a task CREATED through the API with its response.
 
 Then end with, exactly: YOUR TURN: open the browser INSIDE the playground (Edge on the playground desktop) and go to http://playground-l3-YOURNAME.test/my-portal. Add a task in the page (make it a FUN, made-up one, never a real work item; this is a demo database). Mark one done. Now REFRESH the page and watch everything stay. Replace YOURNAME with the real folder name so I can click it. Then: Ready for Prompt 4.</div>
 </div>
-<div class="you"><b>What you do</b>Watch it build. When it says YOUR TURN, open the link it gives you in the playground browser and look at YOUR page, live. Then come back and copy Prompt 4.</div>
+<div class="you"><b>What you do</b>Watch the build happen. When Claude says YOUR TURN, open the link it gives you in the playground browser and look at your own page, live. Then come back and copy Prompt 4.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"approved. Build EXACTLY the plan"</b>The first word is the password from Prompt 2, so pasting this prompt is what opens the gate. "Exactly" closes the side doors: drift between plan and build is where bugs are born.</li>
-<li><b>"copy the pattern of the nearest existing example"</b>The codebase is the best style guide. This one line keeps new code looking like it belongs.</li>
-<li><b>"WORKS / CHECKED THE CODE / NOT TESTED"</b>The honesty labels. "It works" from an AI means nothing until you know whether it RAN it or just wrote it.</li>
-<li><b>"showing me a piece of the JSON"</b>Evidence beats confidence. Data on screen is proof.</li>
-<li><b>"YOUR TURN: open your browser"</b>The human is the QA department. Seeing YOUR page in YOUR browser is the moment this stops being theoretical.</li>
+<li><b>"approved. Build EXACTLY the plan"</b>The first word is the password from Prompt 2, so pasting this prompt is what opens the gate. The word EXACTLY matters just as much, because most bugs are born when a build quietly drifts away from its plan.</li>
+<li><b>"copy the pattern of the nearest existing example"</b>The codebase itself is the best style guide we have. This one line keeps the new code looking like it has always belonged here.</li>
+<li><b>"WORKS / CHECKED THE CODE / NOT TESTED"</b>These are the honesty labels. When an AI tells you something works, that means very little until you know whether it actually ran the code or only wrote it.</li>
+<li><b>"showing me a piece of the JSON"</b>We ask for real data on the screen because evidence is worth more than confidence.</li>
+<li><b>"YOUR TURN: open your browser"</b>You are the quality department today. The moment you see your own page in your own browser, this class stops being theory.</li>
 </ul>
 </div>
 </div>
@@ -205,20 +210,20 @@ Write tests, using this repo's own testing style and tools, that prove:
 3. The /my-portal page loads and shows a seeded task's title.
 And because happy tests lie, add EVIL TWINS: GET with a completely EMPTY table (still answers politely with an empty list, no crash); a title at exactly the 120 length limit; a PATCH aimed at a task id that does not exist (a polite not-found, never a crash); and a request using a method the routes should refuse.
 
-Then run this repo's FULL test suite, ours and everyone's, with the repo's own test command. Report plainly: how many passed, how many failed, how long it took. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave it alone, and move on. BLOCKER RULE stands.
+Then run this repo's FULL test suite, ours and everyone's, with the repo's own test command. Report plainly: how many passed, how many failed, how long it took. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave it alone, and move on. The standing rules from Prompt 1 apply.
 
 End with: Ready for Prompt 5.</div>
 </div>
-<div class="you"><b>What you do</b>Watch the numbers. Green is the goal. If it gets stuck fixing the same thing over and over, the Blocker Rule will kick in and tell you what to say to the instructor.</div>
+<div class="you"><b>What you do</b>Watch the test numbers climb toward green. Claude fixes its own failures along the way, and if a fix ever truly needs a human, it will hand you one plain sentence for the instructor.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"the pipeline... REFUSES code"</b>We tell Claude the consequence, not just the task. It writes better tests when it knows a machine will judge them.</li>
-<li><b>"this repo's own testing style and tools"</b>Generic tests might not even run here. The repo defines the game.</li>
-<li><b>"EVIL TWIN"</b>Every test proving it works gets a sibling trying to break it. Empty lists, edge lengths, wrong doors: that is where real bugs hide.</li>
-<li><b>"run this repo's FULL test suite"</b>Your feature passing means little if you broke a neighbor. The full suite is the handshake with the whole codebase.</li>
-<li><b>"Never weaken or delete an existing test"</b>The most tempting AI shortcut in existence, banned by name, out loud.</li>
+<li><b>"the pipeline... REFUSES code"</b>We tell Claude what happens to weak work here: the company pipeline refuses code that is not tested well enough. Knowing a machine will judge the tests makes Claude write better ones.</li>
+<li><b>"this repo's own testing style and tools"</b>Generic tests might not even run in this codebase, so we ask Claude to use the testing tools this repo already uses on itself.</li>
+<li><b>"EVIL TWIN"</b>Every test that proves the feature works gets a twin that tries to break it: an empty list, a title at the exact length limit, a request through the wrong door. Real bugs live in those corners.</li>
+<li><b>"run this repo's FULL test suite"</b>Your feature passing its own tests means little if it quietly broke something next to it. Running the whole suite proves the rest of the codebase still works too.</li>
+<li><b>"Never weaken or delete an existing test"</b>Deleting a failing test is the most tempting shortcut an AI can take, so we ban it by name, out loud.</li>
 </ul>
 </div>
 </div>
@@ -230,27 +235,31 @@ End with: Ready for Prompt 5.</div>
 <div class="duo">
 <div>
 <div class="pblock">
-<div class="pbar"><span class="plabel">Brutal audit, then surgery</span><button class="copy" onclick="cp(this,'p5')">Copy</button></div>
+<div class="pbar"><span class="plabel">Part one, the brutal audit</span><button class="copy" onclick="cp(this,'p5')">Copy</button></div>
 <div class="ptext" id="p5">Change hats completely. You are now a brutal principal engineer reviewing this feature before it may ship, and your reputation depends on catching what is wrong with it. Audit ONLY what we built today.
 
 Score it 0 to 100, starting at 0, giving points only for what is proven solid. Hunt, in this order: real bugs (wrong data, wrong order, missed edge cases); places where our code does not match this repo's own style and typing standards; data safety (anything that looks like real names or company data, anything touching tables that are not ours); test gaps (what could break tomorrow with no alarm ringing); and the page itself (anything sloppy).
 
 RULES: LIST ONLY, no fixing. Numbered findings, most serious first, one plain-language line each on WHY it matters. No compliments, no filler. A clean category gets the single word CLEAN.
 
-Then STOP and ask me to choose. I will pick up to TWO findings by number. Fix exactly those, rerun the full test suite, show it green, and label everything else KNOWN, NOT FIXED, which is the honest way professionals ship.
+Then STOP and wait. Do not fix anything until my next message.</div>
+</div>
+<div class="pblock" style="margin-top:10px">
+<div class="pbar"><span class="plabel">Part two, paste after the room hears the results</span><button class="copy" onclick="cp(this,'p5b')">Copy</button></div>
+<div class="ptext" id="p5b">Fix the TWO most dangerous findings from your own list. Tell me in one plain line each which two you chose and why. Fix exactly those two, nothing else. Rerun the full test suite, show it green, and label every other finding KNOWN, NOT FIXED, which is the honest way professionals ship.
 
 End with: Ready for Prompt 6.</div>
 </div>
-<div class="you"><b>What you do</b>Read the list. Pick the two that scare you most and reply like: <b>fix 1 and 3</b></div>
+<div class="you"><b>What you do</b>Read the list while the instructor walks one audit out loud for the room. Then paste part two and watch Claude repair the two most dangerous things on its own list.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"Change hats completely"</b>The builder brain defends its own work. A new role with opposite incentives finds what the builder skipped. This is the anti-prompt, the most important prompt you will ever learn.</li>
-<li><b>"starting at 0"</b>Starting from zero flips the psychology: it must find reasons to award points, not excuses to pass you.</li>
-<li><b>"LIST ONLY, no fixing"</b>Finding and fixing in one breath turns into chaos. First the list, then the surgery, separately.</li>
-<li><b>"I will pick up to TWO"</b>Bounded fixes stay verifiable. Unbounded "fix everything" is how working software dies an hour before a deadline.</li>
-<li><b>"KNOWN, NOT FIXED"</b>Real teams ship with an honest list of what they chose not to fix today. Hiding it is the amateur move.</li>
+<li><b>"Change hats completely"</b>The brain that built something will defend it. Giving Claude a completely new role with the opposite goal is how you find what the builder skipped. This is the anti-prompt, and it may be the most useful prompt you learn today.</li>
+<li><b>"starting at 0"</b>Starting the score at zero changes the psychology. The reviewer has to find reasons to award points instead of finding excuses to wave the work through.</li>
+<li><b>"LIST ONLY, no fixing"</b>Finding problems and fixing problems are kept as two separate steps, because doing both in one breath turns into chaos.</li>
+<li><b>"the TWO most dangerous findings"</b>A small, bounded fix can be checked properly. An open instruction to fix everything at once is how working software gets wrecked an hour before a deadline.</li>
+<li><b>"KNOWN, NOT FIXED"</b>Real teams ship with an honest list of what they chose not to fix today, written down where everyone can see it.</li>
 </ul>
 </div>
 </div>
@@ -271,18 +280,18 @@ End with: Ready for Prompt 6.</div>
 4. Open a pull request into the qa branch on the company Git server. Do not install or reach for any extra tool for this; if you have no way to open it yourself, that is completely fine and expected: give me the exact link to click and tell me precisely what to press, in baby steps. The PR description is five short lines: WHAT we added, WHY, HOW IT IS TESTED, RISK, and ROLLBACK (undoing this one commit). In the RISK line, state plainly: sample data only, nothing sensitive; the page and endpoints are public on purpose for this exercise, and they move behind company sign-in once the hub login fix lands. Saying it in the PR turns a reviewer question into proof we thought it through.
 5. Now the moment of truth. We wait and watch the PR page together. Tell me what to look for, and as results come in, report: did the test pipeline run, what did the coverage check decide, and did the automated reviewer leave a review? Quote what the robot reviewer says and translate every finding into plain English for me.
 
-DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together with the instructor. If the pipeline or the reviewer rejects us, say so calmly and plainly: a rejection is the platform doing its job, and fixing one finding is Prompt 7. BLOCKER RULE stands.</div>
+DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together with the instructor. If the pipeline or the reviewer rejects us, say so calmly and plainly: a rejection is the platform doing its job, and fixing one finding is Prompt 7. The standing rules from Prompt 1 apply.</div>
 </div>
 <div class="you"><b>What you do</b>Complete the sign-in if it pops. Click the link it gives you and press the green button it names. Then watch the checks appear on the PR page, live. This is your code being judged by the company's real machinery.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"the way this company's engineers do"</b>The class stops being an exercise here. Same branch, same pipeline, same robot reviewer your colleagues face daily.</li>
-<li><b>"tell me to complete it and WAIT for me"</b>Sign-ins belong to humans. Teaching the AI to hand them over prevents silent hangs, the most confusing failure a beginner can hit.</li>
-<li><b>"five short lines: WHAT, WHY, HOW TESTED, RISK, ROLLBACK"</b>The description template that makes reviewers trust a submission. Thinking about the undo BEFORE merging is a senior habit.</li>
-<li><b>"translate every finding into plain English"</b>Robot reviews arrive in engineer-speak. Making the AI translate them is how a vibe coder reads them without fear.</li>
-<li><b>"DO NOT MERGE ANYTHING"</b>Merging changes the shared world; that decision is deliberately kept human, and today it is kept for the class.</li>
+<li><b>"the way this company's engineers do"</b>At this point the class stops being an exercise. Your work goes through the same branches, the same pipeline, and the same robot reviewer that this company's engineers face every day.</li>
+<li><b>"tell me to complete it and WAIT for me"</b>Sign-in windows belong to humans. Claude is taught to hand them to you and wait, which prevents the silent hang, the single most confusing failure a beginner can hit.</li>
+<li><b>"five short lines: WHAT, WHY, HOW TESTED, RISK, ROLLBACK"</b>This five-line description is what makes a reviewer trust a submission. Thinking about how you would undo a change before you merge it is a habit of senior engineers.</li>
+<li><b>"translate every finding into plain English"</b>Robot reviews arrive written for engineers. Asking Claude to translate each finding into plain English means you can read them without fear.</li>
+<li><b>"DO NOT MERGE ANYTHING"</b>Merging changes the shared codebase that everyone works in, so that decision stays with humans. Today the whole class makes it together.</li>
 </ul>
 </div>
 </div>
@@ -313,11 +322,11 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"the SINGLE smallest real one"</b>Last-minute fixing is where working software dies. Smallest-real keeps the risk tiny and the lesson intact.</li>
-<li><b>"until my next message begins with: land"</b>The second password of the day, and it is pasted from its own box, never improvised. Irreversible actions get explicit human words, never assumed permission.</li>
-<li><b>"where I can watch the deployment"</b>Deploys should be boring and visible. Watching your commit surface in a real environment is the payoff of the whole class.</li>
-<li><b>"no retries, no side doors"</b>When shipping misbehaves, professionals observe and report. They do not jiggle the handle harder.</li>
-<li><b>"five honest lines"</b>Every real ship ends with a truthful summary including what is NOT done. That list is what makes the next session trivial to start.</li>
+<li><b>"the SINGLE smallest real one"</b>Fixing things at the last minute is the riskiest moment in shipping software. Choosing the single smallest real finding keeps the risk tiny and the lesson intact.</li>
+<li><b>"until my next message begins with: land"</b>This is the second password of the day, and it gets pasted from its own box rather than typed from memory. An action you cannot undo deserves an explicit human word, every single time.</li>
+<li><b>"where I can watch the deployment"</b>A good deploy is boring and visible. Watching your own commit appear in a real company environment is the payoff of the whole class.</li>
+<li><b>"no retries, no side doors"</b>When shipping misbehaves, a professional stops, observes, and reports what happened. We do not let Claude keep pushing buttons and hoping.</li>
+<li><b>"five honest lines"</b>Every real ship ends with a truthful summary, including what is not done yet. That honest list is what makes the next session easy to start.</li>
 </ul>
 </div>
 </div>
@@ -340,9 +349,9 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div class="explain">
 <h4>Why homework is a second PR</h4>
 <ul>
-<li><b>"same rules as class"</b>The loop is the lesson. Running it a second time, alone, on a feature YOU chose the look of, is what makes it stick.</li>
-<li><b>"changing NOTHING about the data"</b>A pure visual change with green tests is the safest possible second rep, and it still exercises every gate.</li>
-<li><b>"a page a manager would screenshot"</b>Beauty is a spec too. Say the outcome you want; the AI rises to named standards.</li>
+<li><b>"same rules as class"</b>The loop itself is the lesson. Running it a second time, on your own, on a feature you chose, is what makes it stick.</li>
+<li><b>"changing NOTHING about the data"</b>A purely visual change with green tests is the safest possible second round, and it still walks through every gate the class walked through.</li>
+<li><b>"a page a manager would screenshot"</b>Beauty counts as a requirement too. When you name the standard you want out loud, the AI rises to meet it.</li>
 </ul>
 </div>
 </div>
@@ -351,13 +360,13 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div class="box">
 <h2>If anything feels stuck</h2>
 <ul>
-<li>First: look for a hidden permission box or a browser sign-in window behind your other windows. Three quiet minutes is normal thinking, not stuck.</li>
-<li>If truly stuck, paste this: <i>"Stop. In five plain lines: what were you doing, what exactly went wrong (quote the error), what did you already try, what do you need from me, and what should I tell the instructor? Do not retry anything until I answer."</i></li>
-<li>Then raise your hand with that answer on your screen. That is the whole protocol.</li>
+<li>Start by looking for a hidden permission box or a browser sign-in window hiding behind your other windows; those wait quietly for you. And a few quiet minutes usually just means Claude is thinking.</li>
+<li>If Claude really does seem stuck, paste this: <i>"Stop. In five plain lines: what were you doing, what exactly went wrong (quote the error), what did you already try, what do you need from me, and what should I tell the instructor? If you can still fix this yourself with everything you know about this machine, say so and go ahead."</i></li>
+<li>Then raise your hand with that answer on your screen, and the instructor takes it from there.</li>
 </ul>
 </div>
 
-<footer>Level 3, Session 3. The prompts are the syllabus; the panels beside them are the curriculum.</footer>
+<footer>Level 3, Session 3. Keep this page. The prompts and the panels beside them are yours to reuse on your own projects.</footer>
 </div>
 
 <script>
