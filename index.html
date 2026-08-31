@@ -114,27 +114,29 @@ End your reply with the single line: Ready for Prompt 2.</div>
 
 <!-- STEP 2 -->
 <div class="step">
-<div class="step-head"><span class="num">PROMPT 2</span><h3>The Plan</h3><span class="badge">Your first decision</span></div>
+<div class="step-head"><span class="num">PROMPT 2</span><h3>The Plan: My Work Portal</h3><span class="badge">Your first decision</span></div>
 <div class="duo">
 <div>
 <div class="pblock">
 <div class="pbar"><span class="plabel">Plan first, build later</span><button class="copy" onclick="cp(this,'p2')">Copy</button></div>
-<div class="ptext" id="p2">Today's feature is a SUGGESTION BOX: a place where anyone in the company could post an improvement idea, and everyone can see the list. Small on purpose; the way we build it is the lesson.
+<div class="ptext" id="p2">Today we build MY WORK PORTAL: a personal task board that lives in this app FOR REAL. The tasks sit in the database, the page talks to a real API, and everything you change is still there after a refresh. That difference, a page backed by a server, is the whole point of today.
 
 PLAN ONLY. Do not create or change any file yet. The feature, exactly:
-- A suggestions table in the database: id, title (text, max 120), details (longer text, optional), submitted_by (a person's name), status (starts as "new"), timestamps.
-- The model and a factory for it.
-- A seeder that adds five realistic SAMPLE suggestions, invented names only, wired into this repo's normal seeding.
-- An API endpoint: GET /api/suggestions, returning every suggestion as JSON, newest first.
-- A page at /suggestions showing them in a clean simple table: title, who, status, date, styled the way THIS repo styles pages. IMPORTANT: both the page and the API must be viewable WITHOUT logging in. If this repo protects everything behind login by default, plan ours as public routes outside that protection; if that is truly impossible here, flag it as a risk instead of building a locked door.
-- Tests that prove the endpoint and the page work.
+- Database table portal_tasks (that exact name, chosen so we collide with nothing): id, title (text max 120), category (short word), status (waiting, doing, or done; default waiting), status_since (date), owner (a first name), due (date, optional), priority (1 to 3, default 2), notes (longer text, optional), timestamps.
+- The PortalTask model and a factory.
+- A seeder adding 8 realistic SAMPLE tasks for an operations person, invented names only, a mix of statuses, dues, and priorities, wired into this repo's normal seeding.
+- The API, placed in this repo's stateless api routes so the page's JavaScript can call it without the login system: GET /api/portal-tasks (all tasks, newest first), POST /api/portal-tasks (create with title, category, optional due and priority), PATCH /api/portal-tasks/{id} (update status, due, or notes; when status changes, set status_since to today).
+- A page at /my-portal: ONE standalone full page that does NOT extend the app's layout; all styles and script inline; no packages, no build step, no external files. The look, exactly: warm ivory background (#FAF7F2); one huge serif number at the top showing how many tasks are not done, with a small-caps label under it; three columns titled Waiting, Doing, Done; white cards with soft shadows showing title, category as a small tinted chip, owner, due date (amber when overdue), priority as one to three small dots; an add box at the top (title + category, Enter adds it as waiting through the API); clicking a card's circle marks it done through the API (strikethrough, moves to Done); a Defer button on non-done cards pushes due to tomorrow through the API. Every change saves through the API, so a refresh brings back exactly what you left.
+- Feature tests covering the three endpoints and the page.
+
+Also confirm in the plan, from your recon: that /my-portal and /api/portal-tasks are unused in this repo, and how this repo's api routes handle requests so our page's calls work without logging in (nothing we build may depend on login).
 
 Give me the plan in exactly this shape, short lines, plain words:
 FILES I WILL CREATE, one line each on what it is for.
 FILES I WILL TOUCH, one line each on the single line I am adding and why.
 TESTS I WILL WRITE, named, one line each on what it proves.
 RISKS, the 2 or 3 most likely ways this goes wrong in THIS repo.
-OUT OF SCOPE, always: login and security files, pipeline files, other tables, installing anything new, and any leftover setup files from earlier sessions (they stay exactly where they are, untouched). If the plan seems to need something new installed, list it as a risk instead.
+OUT OF SCOPE, always: login and security files, pipeline files, other tables, installing anything new, and any leftover setup files from earlier sessions (they stay exactly where they are, untouched).
 
 Then STOP and wait. Do not build anything until I reply with the single word: approved</div>
 </div>
@@ -165,11 +167,12 @@ Then STOP and wait. Do not build anything until I reply with the single word: ap
 - Match this repo's own style and typing standards from your Prompt 1 briefing; when unsure, copy the pattern of the nearest existing example in this repo.
 - After each file, one plain line: what you made and what it is for.
 - Sample data and invented names only. Nothing outside this repo folder. Nothing new installed. Login, security, and pipeline files stay untouched.
+- If any write from the page comes back blocked (a 419 or 401 style refusal), that is the repo's request protection: use this repo's own pattern for page-to-API calls (its stateless api routes, or its token header) and tell me plainly which one you used and why.
 - If the plan meets reality and something does not fit, STOP and tell me in plain words what you found and what you suggest. No silent improvising. The standing BLOCKER RULE applies.
 
-When the code is written: run the database migration, run the seeder, and PROVE it all works, labeling every claim honestly: WORKS means you ran it and saw it; CHECKED THE CODE means you read it but did not run it; NOT TESTED means exactly that. Show me the route exists and call the API yourself, showing me a piece of the JSON that came back.
+When the code is written: run the database migration, run the seeder, and PROVE it, labeling every claim honestly: WORKS means you ran it and saw it; CHECKED THE CODE means you read it but did not run it; NOT TESTED means exactly that. Show me: the routes exist, a call to GET /api/portal-tasks with a piece of the JSON that came back, and a task CREATED through the API with its response.
 
-Then end with, exactly: YOUR TURN: open the browser INSIDE the playground (Edge on the playground desktop) and go to http://playground-l3-YOURNAME.test/suggestions, look at your new page, and come back. Replace YOURNAME with the real folder name so I can click it. Then: Ready for Prompt 4.</div>
+Then end with, exactly: YOUR TURN: open the browser INSIDE the playground (Edge on the playground desktop) and go to http://playground-l3-YOURNAME.test/my-portal. Add a task in the page. Mark one done. Now REFRESH the page and watch everything stay. Replace YOURNAME with the real folder name so I can click it. Then: Ready for Prompt 4.</div>
 </div>
 <div class="you"><b>What you do</b>Watch it build. When it says YOUR TURN, open the link it gives you in the playground browser and look at YOUR page, live. Then come back and copy Prompt 4.</div>
 </div>
@@ -196,10 +199,10 @@ Then end with, exactly: YOUR TURN: open the browser INSIDE the playground (Edge 
 <div class="ptext" id="p4">Here is a fact about this company's platform: when code is submitted, an automatic pipeline runs the tests and REFUSES code that is not properly covered by them. Tests are not homework here; they are the toll gate. So:
 
 Write tests, using this repo's own testing style and tools, that prove:
-1. GET /api/suggestions answers correctly with our suggestions, newest first.
-2. The /suggestions page loads and shows a seeded suggestion's title.
-3. The factory produces valid records.
-And because happy tests lie, add one EVIL TWIN each: the endpoint with a completely EMPTY table (must still answer politely, not crash); a title at exactly the 120 length limit; and a request using a method the endpoint should refuse.
+1. GET /api/portal-tasks answers correctly with our seeded tasks, newest first.
+2. POST creates a task that then appears in the list, and PATCH really changes status (and sets status_since to today).
+3. The /my-portal page loads and shows a seeded task's title.
+And because happy tests lie, add EVIL TWINS: GET with a completely EMPTY table (still answers politely with an empty list, no crash); a title at exactly the 120 length limit; a PATCH aimed at a task id that does not exist (a polite not-found, never a crash); and a request using a method the routes should refuse.
 
 Then run this repo's FULL test suite, ours and everyone's, with the repo's own test command. Report plainly: how many passed, how many failed, how long it took. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave it alone, and move on. BLOCKER RULE stands.
 
@@ -261,7 +264,7 @@ End with: Ready for Prompt 6.</div>
 <div class="pbar"><span class="plabel">Submit it for real</span><button class="copy" onclick="cp(this,'p6')">Copy</button></div>
 <div class="ptext" id="p6">Time to submit our work the way this company's engineers do, so the platform itself can judge it. Step by step, telling me each result in plain words:
 
-1. Make a branch named feat/suggestion-box-MYNAME (use the name from this repo's folder).
+1. Make a branch named feat/work-portal-MYNAME (use the name from this repo's folder).
 2. Before committing, list BY NAME exactly which files you are about to include; they must be only the files from our approved plan. NEVER sweep everything in; if the repo shows other changed or leftover files, they stay out, no exceptions. Then make one commit of our feature, written in the same style as this repo's existing commit messages (look at a few first).
 3. Push the branch. A browser sign-in may appear on my screen; tell me to complete it and WAIT for me. Never let a command sit waiting silently.
 4. Open a pull request into the qa branch. If you cannot open it yourself, give me the exact link to click and tell me precisely what to press, in baby steps. The PR description is five short lines: WHAT we added, WHY, HOW IT IS TESTED, RISK, and ROLLBACK (undoing this one commit).
@@ -321,9 +324,9 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div>
 <div class="pblock">
 <div class="pbar"><span class="plabel">Round two, solo</span><button class="copy" onclick="cp(this,'p8')">Copy</button></div>
-<div class="ptext" id="p8">Homework round, same rules as class. PLAN ONLY first: propose a visual upgrade for the /suggestions page: modern, warm, professional; a page a manager would screenshot. Cards or a refined table, clear status colors, generous spacing, a small header with a count, all matching this repo's styling approach, changing NOTHING about the data, the API, or any other page. List the files you will touch and wait for my: approved
+<div class="ptext" id="p8">Homework round, same rules as class. Look at The App tab on the class page: that is the full vision this portal grows into. Pick exactly ONE piece of it: the living sky header, an Urgent tab, or a Week strip. PLAN ONLY first: what you will add to /my-portal, which files you will touch, which tests you will add, changing NOTHING about the existing endpoints or any other page. Wait for my: approved
 
-After I approve: build it, keep every test green, run the full suite, then walk me through shipping it EXACTLY like class: new branch feat/suggestion-box-polish-MYNAME, one commit, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; I will ask the instructor to look first. The point of this round: you just did the whole loop yourself. That is the skill.</div>
+After I approve: build it, keep every test green, run the full suite, then ship it EXACTLY like class: new branch feat/portal-upgrade-MYNAME, one commit, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; the instructor looks first. The point of this round: you just ran the whole loop yourself. That is the skill.</div>
 </div>
 <div class="you"><b>What you do</b>This one is yours alone, after class or when the instructor says there is time. Same rhythm: approve the plan, complete the sign-in, click the PR link, read the review.</div>
 </div>
