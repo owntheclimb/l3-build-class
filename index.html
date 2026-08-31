@@ -344,57 +344,36 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 </div>
 </div>
 
-<div class="step">
-<div class="step-head"><span class="num">BONUS</span><h3>Homework: Make It Beautiful, Ship It Again</h3><span class="badge">The repeat rep</span></div>
-<div class="duo">
-<div>
-<div class="pblock">
-<div class="pbar"><span class="plabel">Round two, solo: part one, the plan</span><button class="copy" onclick="cp(this,'p8')">Copy</button></div>
-<div class="ptext" id="p8">Homework round, same rules as class. On the class page there is a tab called The App: the full vision this portal grows into, and it holds three pieces we could add next: the living sky header, the urgent view, or the week view. First ask me which piece I want, and wait for my answer; if I cannot decide, recommend the living sky header. Then learn what my choice really looks like: try to open https://l3-class.vercel.app/product from this machine and read its code, because all three pieces live in that one file. If you cannot reach it, ask me for a screenshot of the App tab instead (I press Win+Shift+S, drag a box over it, and paste the picture here). Then PLAN ONLY: what you will add to /my-portal, which files you will touch, which tests you will add, changing NOTHING about the existing endpoints or any other page. Then STOP and wait. Do not build until my next message begins with the word: approved.</div>
-</div>
-<div class="pblock" style="margin-top:10px">
-<div class="pbar"><span class="plabel">Part two, paste when the plan looks right</span><button class="copy" onclick="cp(this,'p8b')">Copy</button></div>
-<div class="ptext" id="p8b">approved. Build it: keep every test green, run the tests the way class did, then ship it EXACTLY like class: new branch feat/portal-upgrade-MYNAME, one commit of only the planned files, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; the instructor looks first. The point of this round: you just ran the whole loop yourself. That is the skill.</div>
-</div>
-<div class="you"><b>What you do</b>This one is yours alone, after class or when the instructor says there is time. Same rhythm: read the plan, and when it looks right paste part two, your approval rides on its first word. Complete the sign-in, click the PR link, read the review. (Prompt 8 adds something new to your portal; Prompt 9 below makes everything better. After class, either order works.)</div>
-</div>
-<div class="explain">
-<h4>Why homework is a second PR</h4>
-<ul>
-<li><b>"same rules as class"</b>The loop itself is the lesson. Running it a second time, on your own, on a feature you chose, is what makes it stick.</li>
-<li><b>"changing NOTHING about the data"</b>A purely visual change with green tests is the safest possible second round, and it still walks through every gate the class walked through.</li>
-<li><b>"a page a manager would screenshot"</b>Beauty counts as a requirement too. When you name the standard you want out loud, the AI rises to meet it.</li>
-</ul>
-</div>
-</div>
-</div>
-
 <!-- STEP 9 -->
 <div class="step">
-<div class="step-head"><span class="num">PROMPT 9</span><h3>The Polish Loop</h3><span class="badge">Repeatable homework</span></div>
+<div class="step-head"><span class="num">HOMEWORK</span><h3>The Polish Loop</h3><span class="badge">One prompt, pasted as often as you like</span></div>
 <div class="duo">
 <div>
 <div class="pblock">
 <div class="pbar"><span class="plabel">The loop, paste it as many times as you like</span><button class="copy" onclick="cp(this,'p9')">Copy</button></div>
-<div class="ptext" id="p9">THE POLISH LOOP. This prompt is different from every other one today: it is built to be pasted again and again, and every pass makes the app measurably better. Run it after class, tonight, next week. Each time, it starts by looking with fresh eyes at whatever is really there.
+<div class="ptext" id="p9">THE POLISH LOOP, and it is the whole homework. This prompt is built to be pasted again and again: run it tonight, tomorrow, next week, and every pass moves your portal closer to the finished vision. The destination is written below, and it is the same destination for the entire class; some portals will carry a little more flourish than others, and all of them are walking to the same place.
+
+THE DESTINATION, the app we are growing into (this is the App tab on the class page, written in words):
+- THE SKY HEADER: a full-width rounded hero whose gradient follows the real clock through dawn, day, dusk, and night; a live clock; a warm greeting; a quiet line showing how far through the workday we are; and the big serif count of open tasks. Weather moods are invented and switchable for fun, and they change only the sky's look.
+- THE ADVISOR LINE: one warm sentence under the greeting, computed from the tasks alone with plain rules: the most overdue thing, or what is due next, or a word of praise when Done grew today. No AI service and no network call, ever.
+- THE BOARD, the To-Do view: three columns, Waiting, Doing, and Done, each with a count; cards carrying a title, a category chip, a priority dot, and a due date that turns amber when overdue; the add box; mark-done; defer.
+- THE URGENT VIEW: a second tab showing only what needs attention right now: overdue first, then due today, then priority 1, and a kind sentence when nothing is urgent.
+- THE WEEK VIEW: a third tab with the next seven days laid out and each day's due tasks beneath it, with today clearly marked.
+- THE POLISH: the design system at the bottom of this prompt, plus the finishing touches: sorting by due date or by hand, a compact density toggle, and a reset.
 
 EVERY PASS, in this order:
 
-1. LOOK FIRST. Ask me for a screenshot of /my-portal as it stands right now (I press Win+Shift+S, drag a box over the page, and paste the picture here), and read the page's code too. Judge only what is truly there, never what you remember building.
+1. LOOK FIRST. Ask me for a screenshot of /my-portal as it stands right now (I press Win+Shift+S, drag a box over the page, and paste the picture here), and read the page's code too. Judge only what is truly there.
 
-2. SCORE it, 0 to 10 for each of these, based on what you can prove:
-- WORKS: every button, box, and link does what it promises. Add a task, mark one done, defer one, refresh the page, try an empty column, a title at the length limit, a double-click on a save. Test through the page's own API, for real.
-- SOLID: no bug you can find, polite failures when the server refuses, and every test green.
-- CODE: the page's code reads clean and consistent: naming, structure, no dead pieces left behind.
-- DESIGN: scored against the design system below, piece by piece: tokens, type scale, spacing rhythm, elevation, affordance, motion, the living sky, honesty states, reduced-motion.
+2. SCORE it, 0 to 10 each, based on what you can prove: WORKS (every button, box, and link does what it promises; test adding, done, defer, refresh, an empty column, a title at the limit, through the page's own API, for real); SOLID (no bug you can find, polite failures, every test green); then each destination piece by name: HEADER, ADVISOR, BOARD, URGENT, WEEK, POLISH. A piece that does not exist yet scores 0, and that is normal.
 
-3. REPORT the four scores in a short table, with one plain line each about the biggest gap you found.
+3. REPORT the scores in a short table, one plain line each about the biggest gap.
 
-4. FIX AND RAISE, in this order: first fix every real functional problem from WORKS and SOLID, because working comes before beautiful, always. Then raise the lowest DESIGN scores with expert, specific moves: exact spacing values, exact colors from the tokens, exact easing. Stay inside the files we created in class; a problem in anyone else's code gets labeled FOR THE PLATFORM TEAM and left alone. Tests stay green, and no test gets weakened to get there. Nothing new installed, no new network calls, ever.
+4. FIX AND BUILD, in this order: first fix every real functional problem, because working comes before beautiful, always. Then take the LOWEST destination scores and move them up with expert, specific work: build the missing piece, or raise the rough one. One or two pieces per pass is right; leave the rest for the next paste. Stay inside the files we created in class; a problem in anyone else's code gets labeled FOR THE PLATFORM TEAM and left alone. Tests stay green, and no test gets weakened. Nothing new installed, no new network calls, ever.
 
-5. PROVE IT: run the tests the way class did and show them green, then ask me for one more screenshot and put the new scores next to the old ones, so we both see the needle move.
+5. PROVE IT: run the tests the way class did and show them green, then ask me for one more screenshot and put the new scores next to the old ones, so we both watch the app walk toward the vision.
 
-THE BAR: every score at 9 or higher, and a pass that finds zero functional problems. Until the bar is met, end every pass with: Run the loop again when ready. When a pass meets the bar, say THE BAR IS MET, list anything labeled FOR THE PLATFORM TEAM, and then ship it the class way: branch fix/portal-polish-MYNAME, one commit of only our files, push (hand me the sign-in), pull request into qa with the five-line description, and read me the robot review in plain words. Do not merge; the instructor looks first.
+THE BAR: every score at 9 or higher, and a pass that finds zero functional problems. Until the bar is met, end every pass with: Run the loop again when ready. When a pass meets the bar, say THE BAR IS MET, list anything labeled FOR THE PLATFORM TEAM, and ship it the class way: branch fix/portal-polish-MYNAME, one commit of only our files, push (hand me the sign-in), pull request into qa with the five-line description, and read me the robot review in plain words. Do not merge; the instructor looks first.
 
 THE DESIGN SYSTEM, this is what a 10 looks like:
 - Design tokens, defined once at the top of the page's style block and reused by name everywhere: ivory background #FAF7F2, ink text #16181D, one cyan accent #0E7490, amber #B45309 reserved for overdue alone, green #15803D reserved for done alone, white cards, hairline borders rgba(22,24,29,.08).
@@ -403,19 +382,19 @@ THE DESIGN SYSTEM, this is what a 10 looks like:
 - Elevation, two shadows only: a soft resting shadow (0 10px 24px rgba(2,4,8,.08)) and a deeper lift on hover (0 24px 50px rgba(2,4,8,.12)). Cards lift; nothing else casts shadows.
 - Corner radius scale: 28px for the hero header, 14px for cards, a full pill for chips and buttons.
 - Affordance: everything clickable shows that it is clickable before the click: a hover state, a visible focus ring (0 0 0 3px rgba(14,116,144,.15)), and card actions that appear on hover or keyboard focus.
-- Motion: one easing curve for everything, cubic-bezier(0.25,1,0.5,1), 200 milliseconds, applied only to shadow, transform, and color. One slow exception lives below.
-- The living sky header: a soft gradient that follows the real clock. Dawn blends #40548E to #7C6EA8 to #E8A87C to #F7CFA0 at 168 degrees; day runs #3D85C5 to #5FA3D6 to #A8D2EC; night runs #0A0F22 to #141C3E to #28325E. Cross-fade over 1.2 seconds, checked once a minute by the page's own clock. Invented weather moods are welcome; a live weather service is not, ever.
+- Motion: one easing curve for everything, cubic-bezier(0.25,1,0.5,1), 200 milliseconds, applied only to shadow, transform, and color. The slow exception is the sky's 1.2 second cross-fade.
 - Honesty states: an empty column says something warm instead of showing nothing; a card that is saving dims until its request comes back.
 - Respect: every animation obeys the visitor's reduced-motion setting, switched off in one CSS block.
 
-EXTRA CREDIT, the reverse engineering rep: if you can reach the class page from this machine, open https://l3-class.vercel.app/product and read its style block to check my numbers against the source, then tell me one thing the source does that this spec left out. Reading a real page's code to extract its design system is a skill worth having.</div>
+EXTRA CREDIT: if you can reach the class page from this machine, open https://l3-class.vercel.app/product and read its code to check my destination description and these design values against the source, then tell me one craft detail the source has that this prompt left out. Reading a real page's code is a skill worth having.</div>
 </div>
-<div class="you"><b>What you do</b>This one is yours forever. Paste it tonight, tomorrow, next month; send a screenshot each time Claude asks for one, and watch the scores climb. When Claude says THE BAR IS MET, it ships the class way, and you show the instructor what you grew.</div>
+<div class="you"><b>What you do</b>This is the whole homework, and it is yours forever. Paste it, send a screenshot when Claude asks, watch the scores climb, and paste it again another day. Every pass grows your portal toward the App tab. When Claude says THE BAR IS MET, it ships the class way, and you show the instructor what you grew.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
 <li><b>"built to be pasted again and again"</b>This is a repeatable prompt, and repetition is the trick: each pass looks with fresh eyes, scores what is really there, and improves the weakest part. You control the loop by choosing when to paste it again, so it never runs away or costs anything behind your back.</li>
+<li><b>"THE DESTINATION... the same destination for the entire class"</b>When the finish line is written down in plain words, fifteen portals in fifteen different states can all walk toward the same app. The loop scores against the destination every time, so it always knows what to build next, whatever shape your portal is in today.</li>
 <li><b>"working comes before beautiful, always"</b>Every pass fixes real problems before it touches the look, and every pass ends with green tests. That ordering is what lets the same prompt do quality checking and design work without shipping a pretty broken page.</li>
 <li><b>"Design tokens"</b>Professional designers name each color once at the top of the file and then use the names everywhere, instead of pasting raw color codes all over the page. That list of names is called the design tokens, and it means you can change the entire look of the page by editing one small block.</li>
 <li><b>"Type scale"</b>A page looks calm when its text comes in a few deliberate sizes instead of many accidental ones. We use three sizes here, and we save the fancy serif font for the one big number at the top of the page, which is exactly why that number feels important when you see it.</li>
