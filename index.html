@@ -376,15 +376,19 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div>
 <div class="pblock">
 <div class="pbar"><span class="plabel">Part one, the plan</span><button class="copy" onclick="cp(this,'p9')">Copy</button></div>
-<div class="ptext" id="p9">POLISH ROUND, same rules as class. The portal works; now we make it feel expensive. PLAN ONLY first, in the exact shape from class: FILES, and you may touch ONLY resources/views/my-portal.blade.php, nothing else; THE LOOK, what you will change about spacing, type, color, hover, and motion, each in one plain line; TESTS, which existing tests prove nothing broke, plus one new one only if your markup changes what they check; RISKS; OUT OF SCOPE, always: endpoints, data logic, other files, new packages, build tools, and external fonts, none of those, ever.
+<div class="ptext" id="p9">POLISH ROUND, same rules as class. The portal works; now we make it look like the vision. On the class page there is a tab called The App: that page IS the target. The living sky header, the weather mood, the card anatomy, the whole feel of it.
 
-The design bar, in words: a calm, expensive page a manager would screenshot. One ivory background, the serif reserved for the hero count alone, generous whitespace, edges that line up, a hover state on everything clickable, transitions under 200 milliseconds, and one small moment of delight when the page loads or when a task lands in Done. CSS only, inside the page's own style block; system fonts only; every animation respects the reduced-motion setting.
+Step one, study the target for real, never from imagination. Try to open it yourself from this machine and read its code: https://l3-class.vercel.app/product is one self-contained file, and every color value, gradient, spacing choice, type size, and animation lives right there in its style and script blocks. If you cannot reach it, ask me for screenshots of the App tab instead (I press Win+Shift+S and paste them, as many angles as you need). Then write down THE DESIGN SYSTEM you extracted, in plain lines: the palette with its real color values, the type scale, the card anatomy, how the sky header behaves, and the motion patterns.
+
+Step two, the plan, PLAN ONLY, in the exact shape from class: FILES, and you may touch ONLY resources/views/my-portal.blade.php, nothing else; THE PORT, which pieces of the target design you will rebuild and how each one translates into our page, one plain line each; TESTS, which existing tests prove nothing broke, plus one new one only if your markup changes what they check; RISKS; OUT OF SCOPE, always: endpoints, data logic, other files, new packages, build tools, external fonts, and ANY new network call, none of those, ever. The sky may follow the real clock, and weather moods stay invented and fun; never call a live weather service.
+
+The bar is not "nicer". The bar is: someone who has seen the App tab looks at your page and recognizes the same family. Everything CSS and the page's own inline script; every animation respects the reduced-motion setting.
 
 Then STOP and wait. Do not build until my next message begins with the word: approved.</div>
 </div>
 <div class="pblock" style="margin-top:10px">
 <div class="pbar"><span class="plabel">Part two, paste when the plan looks right</span><button class="copy" onclick="cp(this,'p9b')">Copy</button></div>
-<div class="ptext" id="p9b">approved. Build it: one file, exactly the plan, and after each visible change tell me in one plain line what it does for the page. When the file is done, run the tests the way class did and show them green. Then ask me for a screenshot of the page (I press Win+Shift+S, drag a box over my portal in the browser, and paste the picture here) and judge it like a brutal design reviewer: score the look alone from 0 to 100, starting at 0, and name the three weakest things you can see. Fix those three, ask me for one more screenshot, and give me the new score.
+<div class="ptext" id="p9b">approved. Build it: one file, exactly the plan, and after each visible change tell me in one plain line what it does for the page. When the file is done, run the tests the way class did and show them green. Then ask me for a screenshot of the page (I press Win+Shift+S, drag a box over my portal in the browser, and paste the picture here) and judge it like a brutal design reviewer holding the target next to it: score how close my page feels to the App tab's family, 0 to 100, starting at 0, and name the three biggest gaps between mine and the target. Close those three gaps, ask me for one more screenshot, and give me the new score.
 
 Then ship it EXACTLY like class: new branch feat/portal-polish-MYNAME, one commit of only this file, push (hand me the sign-in), pull request into qa with the five-line description, and read me the robot review in plain words. Do not merge; the instructor looks first.</div>
 </div>
@@ -393,9 +397,10 @@ Then ship it EXACTLY like class: new branch feat/portal-polish-MYNAME, one commi
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"we make it feel expensive"</b>Beauty is a requirement you can say out loud. When you name the standard, a page a manager would screenshot, the AI aims there. When you leave it unsaid, it aims at average.</li>
+<li><b>"study the target for real, never from imagination"</b>Incredible frontend work does not come from vibes. It comes from reading the target's actual code, extracting its design system, the exact colors, the spacing rhythm, the type scale, and only then building. The App tab is one honest file, and it will hand over every secret it has.</li>
+<li><b>"which pieces you will rebuild and how each one translates"</b>Porting a design into a tighter setup is real engineering. Same family, different house: the skill is knowing what to carry over and what to adapt.</li>
 <li><b>"you may touch ONLY my-portal.blade.php"</b>The whole design lives in one file, so the beauty pass has a fence around it. Inside that fence you can play as hard as you like and nothing else can break.</li>
-<li><b>"score the look alone from 0 to 100, starting at 0"</b>This is the anti-prompt trick from class, pointed at design. Fresh eyes, a score that must be earned, the weakest spots named, then fixed, then scored again.</li>
+<li><b>"score how close my page feels to the App tab's family"</b>This is the anti-prompt trick from class, pointed at design, with a real target to measure against. A score against a named standard must be earned; the biggest gaps get named, closed, and scored again.</li>
 <li><b>"ask me for a screenshot"</b>Claude cannot see your browser, so you become its eyes. Two screenshots and it can judge its own work honestly instead of imagining it.</li>
 <li><b>"CSS only... respects the reduced-motion setting"</b>Motion is seasoning: small, quick, and optional. A page that moves too much reads as cheap, and some people need it to be still.</li>
 <li><b>"ship it EXACTLY like class"</b>Every improvement travels the same road now: branch, commit, robot review, landing. That road belongs to you.</li>
