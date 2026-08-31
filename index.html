@@ -131,7 +131,7 @@ End your reply with the single line: Ready for Prompt 2.</div>
 <div class="ptext" id="p2">Today we build MY WORK PORTAL: a personal task board that lives in this app FOR REAL. The tasks sit in the database, the page talks to a real API, and everything you change is still there after a refresh. That difference, a page backed by a server, is the whole point of today.
 
 PLAN ONLY. Do not create or change any file yet. The feature, exactly:
-- Database table portal_tasks (that exact name, chosen so we collide with nothing): id, title (text max 120), category (short word), status (waiting, doing, or done; default waiting), status_since (date), owner (a first name), due (date, optional), priority (1 to 3, default 2), notes (longer text, optional), timestamps.
+- Database table portal_tasks_MYNAME, where MYNAME is the name part of this repo folder (the piece after playground-l3-). The suffix is not optional: every playground in this class shares ONE dev database, so a bare portal_tasks would collide with fourteen classmates. Columns: id, title (text max 120), category (short word), status (waiting, doing, or done; default waiting), status_since (date), owner (a first name), due (date, optional), priority (1 to 3, default 2), notes (longer text, optional), timestamps.
 - The PortalTask model and a factory.
 - A seeder adding 8 realistic SAMPLE tasks for an operations person, invented names only, a mix of statuses, dues, and priorities, wired into this repo's normal seeding.
 - The API, registered so the page's JavaScript can call it with nobody logged in (your required check c below decides exactly how): GET /api/portal-tasks (all tasks, newest first), POST /api/portal-tasks (create with title, category, optional due and priority), PATCH /api/portal-tasks/{id} (update status, due, or notes; when status changes, set status_since to today).
@@ -142,7 +142,7 @@ Also confirm in the plan, from your recon. These are four REQUIRED CHECKS and th
 (a) that /my-portal and /api/portal-tasks are unused anywhere in this repo;
 (b) whether routes/web.php ends in a catch-all or fallback route that would swallow /my-portal; if it does, the plan must say our route is registered ABOVE it;
 (c) whether the vendor package that ships this template adds CSRF protection to the api middleware group. It very likely does, which means a plain fetch POST from our page comes back 419; if so, the plan must say we print a CSRF token in the page head and send it as a header on every write. The plan may NOT propose editing any middleware, CSRF exception list, or security file to get around this;
-(d) the name of the database this app is configured to use. If that name clearly belongs to this playground alone, our table stays portal_tasks. If it does not, or you cannot tell, the plan must rename the table to portal_tasks_MYNAME (using this repo folder's name) and keep the routes as they are, so classmates on a shared database cannot collide.
+(d) say back the exact table name you will create, with MYNAME filled in from this repo folder, and confirm the model points at that table while the routes stay exactly /api/portal-tasks and the page stays /my-portal. The database is shared with the whole class; the table name is what keeps everyone in their own lane.
 
 Give me the plan in exactly this shape, short lines, plain words:
 FILES I WILL CREATE, one line each on what it is for.
