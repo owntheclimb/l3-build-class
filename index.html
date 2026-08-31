@@ -88,6 +88,7 @@ YOU ARE: a senior Laravel engineer joining this codebase today. Read the reposit
 5. The exact command this repo uses to run its own tests, found in its own files.
 6. Which database this app talks to, name only, never any passwords or connection text.
 7. Three things we should never touch in here, one plain reason each.
+8. Housekeeping check, calmly: is this repo clean, or are there leftover files from earlier setup attempts (a starter-kit folder, extra notes files, anything uncommitted)? Just LIST what you find. Do not delete or move anything; we will simply build around it, and we will make sure none of it rides along when we submit our work later.
 
 RULES, for this prompt and every prompt today: read-only unless a prompt says otherwise; never print secrets; if something is unknowable say NOT FOUND instead of guessing. THE BLOCKER RULE, standing all class: if you hit a real problem you cannot solve yourself within two attempts, STOP, and give me ONE plain sentence to relay to the instructor, plus, if the fix is a simple click or a single command, walk me through it in baby steps. Never retry quietly in a loop.
 
@@ -131,7 +132,7 @@ FILES I WILL CREATE, one line each on what it is for.
 FILES I WILL TOUCH, one line each on the single line I am adding and why.
 TESTS I WILL WRITE, named, one line each on what it proves.
 RISKS, the 2 or 3 most likely ways this goes wrong in THIS repo.
-OUT OF SCOPE, always: login and security files, pipeline files, other tables, and installing anything new. If the plan seems to need something new installed, list it as a risk instead.
+OUT OF SCOPE, always: login and security files, pipeline files, other tables, installing anything new, and any leftover setup files from earlier sessions (they stay exactly where they are, untouched). If the plan seems to need something new installed, list it as a risk instead.
 
 Then STOP and wait. Do not build anything until I reply with the single word: approved</div>
 </div>
@@ -259,7 +260,7 @@ End with: Ready for Prompt 6.</div>
 <div class="ptext" id="p6">Time to submit our work the way this company's engineers do, so the platform itself can judge it. Step by step, telling me each result in plain words:
 
 1. Make a branch named feat/suggestion-box-MYNAME (use the name from this repo's folder).
-2. One commit of our feature, written in the same style as this repo's existing commit messages (look at a few first).
+2. Before committing, list BY NAME exactly which files you are about to include; they must be only the files from our approved plan. NEVER sweep everything in; if the repo shows other changed or leftover files, they stay out, no exceptions. Then make one commit of our feature, written in the same style as this repo's existing commit messages (look at a few first).
 3. Push the branch. A browser sign-in may appear on my screen; tell me to complete it and WAIT for me. Never let a command sit waiting silently.
 4. Open a pull request into the qa branch. If you cannot open it yourself, give me the exact link to click and tell me precisely what to press, in baby steps. The PR description is five short lines: WHAT we added, WHY, HOW IT IS TESTED, RISK, and ROLLBACK (undoing this one commit).
 5. Now the moment of truth. We wait and watch the PR page together. Tell me what to look for, and as results come in, report: did the test pipeline run, what did the coverage check decide, and did the automated reviewer leave a review? Quote what the robot reviewer says and translate every finding into plain English for me.
