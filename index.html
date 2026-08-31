@@ -67,7 +67,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
 <div class="check">CHECK: at the bottom right of the message box it should say <b>Opus</b>. If it says something else, click it and choose Opus.</div>
 <ol start="3">
 <li>If Claude asks permission to read or edit files in this folder, say yes. If a Windows admin box ever pops up asking to make changes to the computer, the answer is <b>No</b>.</li>
-<li>One prompt at a time, in order, and let Claude finish before you type anything. While it works, read what it says out loud in your head; that running commentary is half the class.</li>
+<li>One prompt at a time, in order, and let Claude finish before you paste the next one. You never need to type your own words into the chat today; every word you send lives in a copy box on this page. While Claude works, read what it says out loud in your head; that running commentary is half the class.</li>
 <li>If a sign-in window pops up inside the playground at any point, click your own account, let it finish, and come back. That is normal and it will happen at least once.</li>
 </ol>
 </div>
@@ -139,9 +139,9 @@ TESTS I WILL WRITE, named, one line each on what it proves.
 RISKS, the 2 or 3 most likely ways this goes wrong in THIS repo.
 OUT OF SCOPE, always: login and security files, pipeline files, other tables, installing anything new, and any leftover setup files from earlier sessions (they stay exactly where they are, untouched).
 
-Then STOP and wait. Do not build anything until I reply with the single word: approved</div>
+Then STOP and wait. Do not build anything until my next message begins with the word: approved. That message will also carry the build instructions.</div>
 </div>
-<div class="you"><b>What you do</b>Read the plan like a boss reading a proposal. If it matches what we said, type: <b>approved</b></div>
+<div class="you"><b>What you do</b>Read the plan like a boss reading a proposal. If it matches what we said, copy Prompt 3, your approval rides on its first word. If something looks off, raise your hand.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
@@ -150,7 +150,7 @@ Then STOP and wait. Do not build anything until I reply with the single word: ap
 <li><b>"The feature, exactly:"</b>We spell out the exact shape so all fifteen of us build the same thing. Vague wishes produce fifteen different apps.</li>
 <li><b>"in exactly this shape"</b>A structured plan can be checked in 60 seconds. A paragraph hides missing pieces.</li>
 <li><b>"OUT OF SCOPE, always"</b>Saying what we will NOT do protects us better than hoping.</li>
-<li><b>"until I reply with the single word: approved"</b>A literal password for permission. You stay the decision-maker; the AI stays the brilliant builder.</li>
+<li><b>"until my next message begins with: approved"</b>A literal password for permission. You stay the decision-maker; the AI stays the brilliant builder. The password rides on top of the next prompt, so pasting Prompt 3 IS your yes.</li>
 </ul>
 </div>
 </div>
@@ -163,7 +163,7 @@ Then STOP and wait. Do not build anything until I reply with the single word: ap
 <div>
 <div class="pblock">
 <div class="pbar"><span class="plabel">Execute the plan</span><button class="copy" onclick="cp(this,'p3')">Copy</button></div>
-<div class="ptext" id="p3">Build EXACTLY the approved plan, nothing extra. While you build:
+<div class="ptext" id="p3">approved. Build EXACTLY the plan you just showed me, nothing extra. While you build:
 
 - Match this repo's own style and typing standards from your Prompt 1 briefing; when unsure, copy the pattern of the nearest existing example in this repo.
 - After each file, one plain line: what you made and what it is for.
@@ -180,7 +180,7 @@ Then end with, exactly: YOUR TURN: open the browser INSIDE the playground (Edge 
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"Build EXACTLY the approved plan"</b>The approval opened the gate; "exactly" closes the side doors. Drift between plan and build is where bugs are born.</li>
+<li><b>"approved. Build EXACTLY the plan"</b>The first word is the password from Prompt 2, so pasting this prompt is what opens the gate. "Exactly" closes the side doors: drift between plan and build is where bugs are born.</li>
 <li><b>"copy the pattern of the nearest existing example"</b>The codebase is the best style guide. This one line keeps new code looking like it belongs.</li>
 <li><b>"WORKS / CHECKED THE CODE / NOT TESTED"</b>The honesty labels. "It works" from an AI means nothing until you know whether it RAN it or just wrote it.</li>
 <li><b>"showing me a piece of the JSON"</b>Evidence beats confidence. Data on screen is proof.</li>
@@ -298,19 +298,23 @@ DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together wi
 <div class="ptext" id="p7">Final stretch, and we do it like professionals:
 
 1. If the pipeline or the robot reviewer raised findings on our PR: pick the SINGLE smallest real one, tell me what it means in one plain sentence, fix exactly that, rerun the full test suite green, and push again to the same branch. If everything came back clean, say so and skip to step 2.
-2. HOLD. Do not merge until I type the single word: land. That word comes from the instructor for the whole class together.
+2. HOLD. Do not merge until my next message begins with the word: land. That word comes from the instructor for the whole class together.
 3. After I say land: merge the pull request into qa exactly the way this repo expects, no force, and then tell me in plain words where I can watch the deployment happen and what I should expect to see when my feature is live in the QA environment. If nothing appears, report what you can see and stop; no retries, no side doors.
 4. Close out with five honest lines: what we shipped, what is proven WORKING, what is KNOWN NOT FIXED, what we would do first next session, and one thing about this codebase worth remembering.
 
 Then end with this, word for word: You just read a real codebase, planned a feature, built it, tested it, survived a brutal audit, and shipped it through the same pipeline the engineering team uses. That is vibe coding done like an engineer. Keep the loop; change the feature.</div>
 </div>
-<div class="you"><b>What you do</b>Wait for the instructor to call it, then type: <b>land</b>. Watch your feature deploy. That screen is worth a photo.</div>
+<div class="pblock" style="margin-top:10px">
+<div class="pbar"><span class="plabel">The landing word, paste only when the instructor calls it</span><button class="copy" onclick="cp(this,'p7b')">Copy</button></div>
+<div class="ptext" id="p7b">land. Go ahead with steps 3 and 4 now.</div>
+</div>
+<div class="you"><b>What you do</b>Wait for the instructor to call it, then paste the landing word above. Watch your feature deploy. That screen is worth a photo.</div>
 </div>
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
 <li><b>"the SINGLE smallest real one"</b>Last-minute fixing is where working software dies. Smallest-real keeps the risk tiny and the lesson intact.</li>
-<li><b>"until I type the single word: land"</b>The second password of the day. Irreversible actions get explicit human words, never assumed permission.</li>
+<li><b>"until my next message begins with: land"</b>The second password of the day, and it is pasted from its own box, never improvised. Irreversible actions get explicit human words, never assumed permission.</li>
 <li><b>"where I can watch the deployment"</b>Deploys should be boring and visible. Watching your commit surface in a real environment is the payoff of the whole class.</li>
 <li><b>"no retries, no side doors"</b>When shipping misbehaves, professionals observe and report. They do not jiggle the handle harder.</li>
 <li><b>"five honest lines"</b>Every real ship ends with a truthful summary including what is NOT done. That list is what makes the next session trivial to start.</li>
@@ -324,12 +328,14 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div class="duo">
 <div>
 <div class="pblock">
-<div class="pbar"><span class="plabel">Round two, solo</span><button class="copy" onclick="cp(this,'p8')">Copy</button></div>
-<div class="ptext" id="p8">Homework round, same rules as class. Look at The App tab on the class page: that is the full vision this portal grows into. Pick exactly ONE piece of it: the living sky header, an Urgent tab, or a Week strip. PLAN ONLY first: what you will add to /my-portal, which files you will touch, which tests you will add, changing NOTHING about the existing endpoints or any other page. Wait for my: approved
-
-After I approve: build it, keep every test green, run the full suite, then ship it EXACTLY like class: new branch feat/portal-upgrade-MYNAME, one commit, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; the instructor looks first. The point of this round: you just ran the whole loop yourself. That is the skill.</div>
+<div class="pbar"><span class="plabel">Round two, solo: part one, the plan</span><button class="copy" onclick="cp(this,'p8')">Copy</button></div>
+<div class="ptext" id="p8">Homework round, same rules as class. Look at The App tab on the class page: that is the full vision this portal grows into. Pick exactly ONE piece of it: the living sky header, an Urgent tab, or a Week strip. PLAN ONLY first: what you will add to /my-portal, which files you will touch, which tests you will add, changing NOTHING about the existing endpoints or any other page. Then STOP and wait. Do not build until my next message begins with the word: approved.</div>
 </div>
-<div class="you"><b>What you do</b>This one is yours alone, after class or when the instructor says there is time. Same rhythm: approve the plan, complete the sign-in, click the PR link, read the review.</div>
+<div class="pblock" style="margin-top:10px">
+<div class="pbar"><span class="plabel">Part two, paste when the plan looks right</span><button class="copy" onclick="cp(this,'p8b')">Copy</button></div>
+<div class="ptext" id="p8b">approved. Build it: keep every test green, run the full suite, then ship it EXACTLY like class: new branch feat/portal-upgrade-MYNAME, one commit of only the planned files, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; the instructor looks first. The point of this round: you just ran the whole loop yourself. That is the skill.</div>
+</div>
+<div class="you"><b>What you do</b>This one is yours alone, after class or when the instructor says there is time. Same rhythm: read the plan, and when it looks right paste part two, your approval rides on its first word. Complete the sign-in, click the PR link, read the review.</div>
 </div>
 <div class="explain">
 <h4>Why homework is a second PR</h4>
