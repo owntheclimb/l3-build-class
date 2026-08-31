@@ -52,7 +52,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
 <header>
 <div class="kicker">Level 3 &middot; Session 3</div>
 <h1>Ship Real Software</h1>
-<p class="lede">Today runs on seven prompts, pasted in order. You copy each one, paste it, and watch Claude do the engineering, and at two big moments the room decides together when to move. The panel beside each prompt explains how it was built, so after class you can write prompts like these for your own projects.</p>
+<p class="lede">Today runs on seven prompts, nine pastes in all, each one called out loud in order. You copy each one, paste it, and watch Claude do the engineering, and at two big moments the room decides together when to move. The panel beside each prompt explains how it was built, so after class you can write prompts like these for your own projects.</p>
 </header>
 
 <div class="box">
@@ -65,7 +65,8 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
 </ol>
 <div class="check">CHECK: the top of the window now shows <b>playground-l3-yourname</b>. If it shows anything else, or you cannot find the folder, tell the instructor now, before pasting anything. A couple of setups from last session still need a two-minute finish, and that is completely expected.</div>
 <div class="check">CHECK: at the bottom right of the message box it should say <b>Opus</b>. If it says something else, click it and choose Opus.</div>
-<ol start="3">
+<div class="check">CHECK: find the permission control under the message box and set it to <b>auto approve</b> (it may be labeled Auto, Auto approve, or Accept edits). Without it, Claude stops and waits for a click at almost every step, and your screen looks like it is thinking when it is really waiting for you.</div>
+<ol start="5">
 <li>If Claude asks permission to read or edit files in this folder, say yes. If a Windows admin box ever pops up asking to make changes to the computer, the answer is <b>No</b>.</li>
 <li>One prompt at a time, in order, and let Claude finish before you paste the next one. You never need to type your own words into the chat today; every word you send lives in a copy box on this page. While Claude works, read what it says out loud in your head; that running commentary is half the class.</li>
 <li>If a sign-in window pops up inside the playground at any point, click your own account, let it finish, and come back. That is normal and it will happen at least once.</li>
@@ -81,7 +82,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
 <div class="pbar"><span class="plabel">Recon</span><button class="copy" onclick="cp(this,'p1')">Copy</button></div>
 <div class="ptext" id="p1">WHY WE ARE HERE: I am in a live training class. Today you and I take one small feature from idea to a real pull request on this company's actual platform, the same way its engineers do. You do the engineering; I steer and decide. This prompt is step one: understand the ground before touching it.
 
-THINGS ABOUT THIS ENVIRONMENT YOU SHOULD KNOW ALL SESSION (so you can diagnose instead of guess): this is a Windows playground machine; the shell is Windows PowerShell 5 where && does not work, one command per line. The local site runs on http, not https; if https fails that is normal, use http. If the local site says "refused to connect" or "can't reach this page", the Herd services are not running: tell me to open the Herd app and wait for green, then continue where we left off. The app's Sign in button goes to company single sign-on that is known to be under repair; NEVER build anything that depends on logging in, and if a page redirects to a login error, that is the known issue, say so calmly. The database is remote and company-managed; if it is ever unreachable, report it plainly, do not try to install or start a database. Some repos contain leftover files from an earlier setup session; they are harmless, never delete them, never include them in commits. The code lives on the company's OWN Git server, reached with plain git and a browser sign-in; there is no GitHub here, so never suggest, install, or use GitHub tools or any other external code-hosting tool. When any command triggers a browser sign-in window, stop and hand it to me. If a Windows admin permission box appears, the answer is always No.
+THINGS ABOUT THIS ENVIRONMENT YOU SHOULD KNOW ALL SESSION (so you can diagnose instead of guess): this is a Windows playground machine; the shell is Windows PowerShell 5 where && does not work, one command per line. The local site runs on http, not https; if https fails that is normal, use http. If the local site says "refused to connect" or "can't reach this page", the Herd services are not running: tell me to open the Herd app and wait for green, then continue where we left off. The local address comes from Herd's own site list, never from a guess; if a .test address does not answer even with Herd green, look up the site name Herd registered for this folder before assuming the URL. The app's Sign in button goes to company single sign-on that is known to be under repair; NEVER build anything that depends on logging in, and if a page redirects to a login error, that is the known issue, say so calmly. The database is remote and company-managed; if it is ever unreachable, report it plainly, do not try to install or start a database. Some repos contain leftover files from an earlier setup session; they are harmless, never delete them, never include them in commits. The code lives on the company's OWN Git server, reached with plain git and a browser sign-in; there is no GitHub here, so never suggest, install, or use GitHub tools or any other external code-hosting tool. When any command triggers a browser sign-in window, stop and hand it to me. If a Windows admin permission box appears, the answer is always No.
 
 YOU ARE: a senior Laravel engineer joining this codebase today. Read the repository and brief me in at most 14 SHORT lines, in plain language a non-engineer can follow:
 1. What this app is built with and how I can see it in my browser.
@@ -91,11 +92,13 @@ YOU ARE: a senior Laravel engineer joining this codebase today. Read the reposit
 5. The exact command this repo uses to run its own tests, found in its own files.
 6. Which database this app talks to, name only, never any passwords or connection text.
 7. Three things we should never touch in here, one plain reason each.
-8. Housekeeping check, calmly: is this repo clean, or are there leftover files from earlier setup attempts (a starter-kit folder, extra notes files, anything uncommitted)? Just LIST what you find. Do not delete or move anything; we will simply build around it, and we will make sure none of it rides along when we submit our work later.
+8. Housekeeping check, calmly: is this repo clean, or are there leftover files from earlier setup attempts (a starter-kit folder, extra notes files, anything uncommitted)? Just LIST what you find. Do not delete or move anything; we will simply build around it, and we will make sure none of it rides along when we submit our work later. Also list every CLAUDE.md and AGENTS.md this project can see, including any in my user folder, and if any of them contradicts what I told you in this message, quote the single clashing line and confirm in one line that THIS message wins for today.
 
 RULES, for this prompt and every prompt today: read-only unless a prompt says otherwise; never print secrets; if something is unknowable say NOT FOUND instead of guessing.
 
 THE FIX-IT-YOURSELF RULE, standing all class: when something breaks or surprises you, you own it. Diagnose it with everything this briefing taught you about this environment, change your approach as many times as you need, quietly get us back on track, and then tell me in one line what happened and what you did. The only time you stop and hand me a sentence is when the fix needs a human: a sign-in window, a permission box, starting the Herd app, the network, or the instructor. In that case give me ONE plain sentence to relay or act on, and if the fix is a simple click or a single command, walk me through it in baby steps. Never sit in a silent retry loop repeating the same failing command; change the angle instead.
+
+THE NEVER-DESTROY RULE, standing all class: your repairs may only ADD or EDIT, never erase. You may never run migrate:fresh, migrate:refresh, migrate:reset, or db:wipe; never drop a table; never run git reset --hard, git checkout . , git clean, or git stash drop; never force push; never delete a file you did not create today. The database is company infrastructure and a wipe cannot be undone during a class. If you believe the only way forward is one of these, STOP and give me one plain sentence for the instructor instead.
 
 THE CHECKPOINT RULE, standing all class: every new prompt I paste assumes the previous step ended well. If it did not, or if anything was left half-finished, your first job is to quietly finish or repair the previous step, tell me in one line what you fixed, and then do the new prompt.
 
@@ -131,11 +134,15 @@ PLAN ONLY. Do not create or change any file yet. The feature, exactly:
 - Database table portal_tasks (that exact name, chosen so we collide with nothing): id, title (text max 120), category (short word), status (waiting, doing, or done; default waiting), status_since (date), owner (a first name), due (date, optional), priority (1 to 3, default 2), notes (longer text, optional), timestamps.
 - The PortalTask model and a factory.
 - A seeder adding 8 realistic SAMPLE tasks for an operations person, invented names only, a mix of statuses, dues, and priorities, wired into this repo's normal seeding.
-- The API, placed in this repo's stateless api routes so the page's JavaScript can call it without the login system: GET /api/portal-tasks (all tasks, newest first), POST /api/portal-tasks (create with title, category, optional due and priority), PATCH /api/portal-tasks/{id} (update status, due, or notes; when status changes, set status_since to today).
+- The API, registered so the page's JavaScript can call it with nobody logged in (your required check c below decides exactly how): GET /api/portal-tasks (all tasks, newest first), POST /api/portal-tasks (create with title, category, optional due and priority), PATCH /api/portal-tasks/{id} (update status, due, or notes; when status changes, set status_since to today).
 - A page at /my-portal: ONE standalone full page that does NOT extend the app's layout; all styles and script inline; no packages, no build step, no external files. The look, exactly: warm ivory background (#FAF7F2); one huge serif number at the top showing how many tasks are not done, with a small-caps label under it; three columns titled Waiting, Doing, Done; white cards with soft shadows showing title, category as a small tinted chip, owner, due date (amber when overdue), priority as one to three small dots; an add box at the top (title + category, Enter adds it as waiting through the API); clicking a card's circle marks it done through the API (strikethrough, moves to Done); a Defer button on non-done cards pushes due to tomorrow through the API. Every change saves through the API, so a refresh brings back exactly what you left.
 - Feature tests covering the three endpoints and the page.
 
-Also confirm in the plan, from your recon: that /my-portal and /api/portal-tasks are unused in this repo, and how this repo's api routes handle requests so our page's calls work without logging in (nothing we build may depend on login).
+Also confirm in the plan, from your recon. These are four REQUIRED CHECKS and the plan must answer each in writing:
+(a) that /my-portal and /api/portal-tasks are unused anywhere in this repo;
+(b) whether routes/web.php ends in a catch-all or fallback route that would swallow /my-portal; if it does, the plan must say our route is registered ABOVE it;
+(c) whether the vendor package that ships this template adds CSRF protection to the api middleware group. It very likely does, which means a plain fetch POST from our page comes back 419; if so, the plan must say we print a CSRF token in the page head and send it as a header on every write. The plan may NOT propose editing any middleware, CSRF exception list, or security file to get around this;
+(d) the name of the database this app is configured to use. If that name clearly belongs to this playground alone, our table stays portal_tasks. If it does not, or you cannot tell, the plan must rename the table to portal_tasks_MYNAME (using this repo folder's name) and keep the routes as they are, so classmates on a shared database cannot collide.
 
 Give me the plan in exactly this shape, short lines, plain words:
 FILES I WILL CREATE, one line each on what it is for.
@@ -173,12 +180,12 @@ Then STOP and wait. Do not build anything until my next message begins with the 
 - Match this repo's own style and typing standards from your Prompt 1 briefing; when unsure, copy the pattern of the nearest existing example in this repo.
 - After each file, one plain line: what you made and what it is for.
 - Sample data and invented names only. Nothing outside this repo folder. Nothing new installed. Login, security, and pipeline files stay untouched.
-- If any write from the page comes back blocked (a 419 or 401 style refusal), that is the repo's request protection: use this repo's own pattern for page-to-API calls (its stateless api routes, or its token header) and tell me plainly which one you used and why.
+- Writes from the page will probably come back 419 the first time, because this template's vendor package adds CSRF protection to the api group. The approved fix is the one from our plan: a CSRF token printed in the page head, sent as a request header on every write. Never edit middleware, a CSRF exception list, or any security or pipeline file to get around a 419.
 - If reality does not quite match the plan in some small way, adapt, stay inside the plan's boundaries, and tell me in one line what you changed and why. Only if the plan truly cannot work as approved do you stop and tell me in plain words what you found and what you suggest. The standing rules from Prompt 1 apply.
 
 When the code is written: run the database migration, run the seeder, and PROVE it, labeling every claim honestly: WORKS means you ran it and saw it; CHECKED THE CODE means you read it but did not run it; NOT TESTED means exactly that. Show me: the routes exist, a call to GET /api/portal-tasks with a piece of the JSON that came back, and a task CREATED through the API with its response.
 
-Then end with, exactly: YOUR TURN: open the browser INSIDE the playground (Edge on the playground desktop) and go to http://playground-l3-YOURNAME.test/my-portal. Add a task in the page (make it a FUN, made-up one, never a real work item; this is a demo database). Mark one done. Now REFRESH the page and watch everything stay. Replace YOURNAME with the real folder name so I can click it. Then: Ready for Prompt 4.</div>
+Then end with, exactly: YOUR TURN: open the browser on the machine where this project lives (on a playground, that is Edge on the playground desktop) and go to http://playground-l3-YOURNAME.test/my-portal. Add a task in the page (make it a FUN, made-up one, never a real work item; this is a demo database). Mark one done. Now REFRESH the page and watch everything stay. Replace YOURNAME with the real folder name so I can click it. Then: Ready for Prompt 4.</div>
 </div>
 <div class="you"><b>What you do</b>Watch the build happen. When Claude says YOUR TURN, open the link it gives you in the playground browser and look at your own page, live. Then come back and copy Prompt 4.</div>
 </div>
@@ -210,7 +217,7 @@ Write tests, using this repo's own testing style and tools, that prove:
 3. The /my-portal page loads and shows a seeded task's title.
 And because happy tests lie, add EVIL TWINS: GET with a completely EMPTY table (still answers politely with an empty list, no crash); a title at exactly the 120 length limit; a PATCH aimed at a task id that does not exist (a polite not-found, never a crash); and a request using a method the routes should refuse.
 
-Then run this repo's FULL test suite, ours and everyone's, with the repo's own test command. Report plainly: how many passed, how many failed, how long it took. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave that test alone, and note it in one plain line so I can report it to the platform team; we own what we find even when it is not ours to touch. The standing rules from Prompt 1 apply.
+Then run this repo's own test command against OUR tests plus the suite directory they live in, and report plainly: how many passed, how many failed, how long it took. The full repository suite is the pipeline's job, and we will watch it do exactly that job in a few minutes. If anything fails, fix OUR code or OUR tests and run again until green, telling me each fix in one line. Never weaken or delete an existing test to get green; if an old test fails for reasons unrelated to us, label it PRE-EXISTING, leave that test alone, and note it in one plain line so I can report it to the platform team; we own what we find even when it is not ours to touch. The standing rules from Prompt 1 apply.
 
 End with: Ready for Prompt 5.</div>
 </div>
@@ -222,7 +229,7 @@ End with: Ready for Prompt 5.</div>
 <li><b>"the pipeline... REFUSES code"</b>We tell Claude what happens to weak work here: the company pipeline refuses code that is not tested well enough. Knowing a machine will judge the tests makes Claude write better ones.</li>
 <li><b>"this repo's own testing style and tools"</b>Generic tests might not even run in this codebase, so we ask Claude to use the testing tools this repo already uses on itself.</li>
 <li><b>"EVIL TWIN"</b>Every test that proves the feature works gets a twin that tries to break it: an empty list, a title at the exact length limit, a request through the wrong door. Real bugs live in those corners.</li>
-<li><b>"run this repo's FULL test suite"</b>Your feature passing its own tests means little if it quietly broke something next to it. Running the whole suite proves the rest of the codebase still works too.</li>
+<li><b>"OUR tests plus the suite directory they live in"</b>Running our own tests locally keeps the loop fast. The company pipeline runs the entire repository suite on the pull request a few minutes later, and that is the honest full check, done by the machine whose job it is.</li>
 <li><b>"Never weaken or delete an existing test"</b>Deleting a failing test is the most tempting shortcut an AI can take, so we ban it by name, out loud.</li>
 </ul>
 </div>
@@ -245,10 +252,10 @@ RULES: LIST ONLY, no fixing. Numbered findings, most serious first, one plain-la
 Then STOP and wait. Do not fix anything until my next message.</div>
 </div>
 <div class="pblock" style="margin-top:10px">
-<div class="pbar"><span class="plabel">Part two, paste after the room hears the results</span><button class="copy" onclick="cp(this,'p5b')">Copy</button></div>
+<div class="pbar"><span class="plabel">Part two, paste after the room hears the results</span><button class="copy" onclick="cp(this,'p5b')">Copy (after the room hears it)</button></div>
 <div class="ptext" id="p5b">Fix EVERY real finding on your list, starting with the most dangerous and working down. One at a time: tell me in one plain line what you are fixing and why it matters, then fix it, and keep going until the list is done. Stay inside today's feature files. If a finding lives in code that is not ours (someone else's tests, the template, the platform), do not touch it; label it FOR THE PLATFORM TEAM and I will pass it along. Never weaken or delete a test to make a problem disappear.
 
-When the list is done, rerun the full test suite, show it green, and give me the honest final tally: what you fixed, and anything labeled FOR THE PLATFORM TEAM.
+When the list is done, rerun the tests the same way Prompt 4 did, show them green, and give me the honest final tally: what you fixed, and anything labeled FOR THE PLATFORM TEAM.
 
 End with: Ready for Prompt 6.</div>
 </div>
@@ -278,11 +285,13 @@ End with: Ready for Prompt 6.</div>
 
 1. Make a branch named feat/work-portal-MYNAME (use the name from this repo's folder).
 2. Before committing, list BY NAME exactly which files you are about to include; they must be only the files from our approved plan. NEVER sweep everything in; if the repo shows other changed or leftover files, they stay out, no exceptions. Then make one commit of our feature, written in the same style as this repo's existing commit messages (look at a few first).
-3. Push the branch. A browser sign-in may appear on my screen; tell me to complete it and WAIT for me. Never let a command sit waiting silently.
-4. Open a pull request into the qa branch on the company Git server. Do not install or reach for any extra tool for this; if you have no way to open it yourself, that is completely fine and expected: give me the exact link to click and tell me precisely what to press, in baby steps. The PR description is five short lines: WHAT we added, WHY, HOW IT IS TESTED, RISK, and ROLLBACK (undoing this one commit). In the RISK line, state plainly: sample data only, nothing sensitive; the page and endpoints are public on purpose for this exercise, and they move behind company sign-in once the hub login fix lands. Saying it in the PR turns a reviewer question into proof we thought it through.
+3. Before you push, tell me in one line that a browser sign-in window may appear and may open BEHIND this window, so I should go looking for it. Then push the branch, and WAIT for me to complete any sign-in. Never let a command sit waiting silently.
+4. Open a pull request into the qa branch on the company Git server. The pull request must go FROM my branch INTO the qa branch of THIS SAME repository; if the page offers any other repository as the destination, stop and tell me exactly how to change it back before I press anything. Do not install or reach for any extra tool for this; if you have no way to open it yourself, that is completely fine and expected: give me the exact link to click and tell me precisely what to press, in baby steps. The PR description is five short lines: WHAT we added, WHY, HOW IT IS TESTED, RISK, and ROLLBACK (undoing this one commit). In the RISK line, state plainly: sample data only, nothing sensitive; the page and endpoints are public on purpose for this exercise, and they move behind company sign-in once the hub login fix lands. Saying it in the PR turns a reviewer question into proof we thought it through.
 5. Now the moment of truth. We wait and watch the PR page together. Tell me what to look for, and as results come in, report: did the test pipeline run, what did the coverage check decide, and did the automated reviewer leave a review? Quote what the robot reviewer says and translate every finding into plain English for me.
 
-DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together with the instructor. If the pipeline or the reviewer rejects us, say so calmly and plainly: a rejection is the platform doing its job, and fixing one finding is Prompt 7. The standing rules from Prompt 1 apply.</div>
+DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together with the instructor. If the pipeline or the reviewer rejects us, say so calmly and plainly: a rejection is the platform doing its job, and fixing findings is Prompt 7. The standing rules from Prompt 1 apply.
+
+End with: Ready for Prompt 7. Then wait quietly: do not push new commits, re-run anything, or check the PR again until I paste the next prompt.</div>
 </div>
 <div class="you"><b>What you do</b>Complete the sign-in if it pops. Click the link it gives you and press the green button it names. Then watch the checks appear on the PR page, live. This is your code being judged by the company's real machinery.</div>
 </div>
@@ -308,16 +317,16 @@ DO NOT MERGE ANYTHING. The merge is a decision the whole class makes together wi
 <div class="pbar"><span class="plabel">Close the loop</span><button class="copy" onclick="cp(this,'p7')">Copy</button></div>
 <div class="ptext" id="p7">Final stretch, and we do it like professionals:
 
-1. If the pipeline or the robot reviewer raised findings on our PR: go through every real one, smallest first. For each, tell me what it means in one plain sentence, fix it, and keep the full test suite green. If a finding points at code that is not ours from today, label it FOR THE PLATFORM TEAM instead of touching it. When everything real is fixed, push again to the same branch. If everything came back clean in the first place, say so and skip to step 2.
-2. HOLD. Do not merge until my next message begins with the word: land. That word comes from the instructor for the whole class together.
-3. After I say land: merge the pull request into qa exactly the way this repo expects, no force, and then tell me in plain words where I can watch the deployment happen and what I should expect to see when my feature is live in the QA environment. If nothing appears, report what you can see and stop; no retries, no side doors.
-4. Close out with five honest lines: what we shipped, what is proven WORKING, anything labeled FOR THE PLATFORM TEAM, what we would do first next session, and one thing about this codebase worth remembering.
-
-Then end with this, word for word: You just read a real codebase, planned a feature, built it, tested it, survived a brutal audit, and shipped it through the same pipeline the engineering team uses. That is vibe coding done like an engineer. Keep the loop; change the feature.</div>
+1. If the pipeline or the robot reviewer raised findings on our PR: go through every real one, smallest first. For each, tell me what it means in one plain sentence, fix it, and keep the tests green. If a finding points at code that is not ours from today, label it FOR THE PLATFORM TEAM instead of touching it. When everything real is fixed, push again to the same branch. If everything came back clean in the first place, say so.
+2. HOLD, and say plainly that you are holding for the landing word. Do not merge, do not push anything new, and do not touch the PR again until my next message begins with the word: land. That word comes from the instructor for the whole class together.</div>
 </div>
 <div class="pblock" style="margin-top:10px">
-<div class="pbar"><span class="plabel">The landing word, paste only when the instructor calls it</span><button class="copy" onclick="cp(this,'p7b')">Copy</button></div>
-<div class="ptext" id="p7b">land. Go ahead with steps 3 and 4 now.</div>
+<div class="pbar"><span class="plabel">The landing word, paste only when the instructor calls it</span><button class="copy" onclick="cp(this,'p7b')">Copy (wait for the call)</button></div>
+<div class="ptext" id="p7b">land. Now merge the pull request into qa exactly the way this repo expects, no force, no side doors. If the merge is refused because a check is red or a rule blocks it, do NOT work around it: tell me in one plain sentence what is blocking it and stop; an open, reviewed pull request is already the real thing. If it merges: deploys line up in a queue, so mine may take a few minutes, and that is normal. If this repo or the PR page shows you where the deployment can be watched, tell me where in plain words; if it does not, say the instructor will share the link.
+
+Then close out with five honest lines: what we shipped, what is proven WORKING, anything labeled FOR THE PLATFORM TEAM, what we would do first next session, and one thing about this codebase worth remembering.
+
+Then end with this, word for word: You just read a real codebase, planned a feature, built it, tested it, survived a brutal audit, and shipped it through the same pipeline the engineering team uses. That is vibe coding done like an engineer. Keep the loop; change the feature.</div>
 </div>
 <div class="you"><b>What you do</b>Wait for the instructor to call it, then paste the landing word above. Watch your feature deploy. That screen is worth a photo.</div>
 </div>
@@ -340,11 +349,11 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div>
 <div class="pblock">
 <div class="pbar"><span class="plabel">Round two, solo: part one, the plan</span><button class="copy" onclick="cp(this,'p8')">Copy</button></div>
-<div class="ptext" id="p8">Homework round, same rules as class. Look at The App tab on the class page: that is the full vision this portal grows into. Pick exactly ONE piece of it: the living sky header, an Urgent tab, or a Week strip. PLAN ONLY first: what you will add to /my-portal, which files you will touch, which tests you will add, changing NOTHING about the existing endpoints or any other page. Then STOP and wait. Do not build until my next message begins with the word: approved.</div>
+<div class="ptext" id="p8">Homework round, same rules as class. Look at The App tab on the class page: that is the full vision this portal grows into. Pick exactly ONE piece of it: the living sky header, the urgent view, or the week view. PLAN ONLY first: what you will add to /my-portal, which files you will touch, which tests you will add, changing NOTHING about the existing endpoints or any other page. Then STOP and wait. Do not build until my next message begins with the word: approved.</div>
 </div>
 <div class="pblock" style="margin-top:10px">
 <div class="pbar"><span class="plabel">Part two, paste when the plan looks right</span><button class="copy" onclick="cp(this,'p8b')">Copy</button></div>
-<div class="ptext" id="p8b">approved. Build it: keep every test green, run the full suite, then ship it EXACTLY like class: new branch feat/portal-upgrade-MYNAME, one commit of only the planned files, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; the instructor looks first. The point of this round: you just ran the whole loop yourself. That is the skill.</div>
+<div class="ptext" id="p8b">approved. Build it: keep every test green, run the tests the way class did, then ship it EXACTLY like class: new branch feat/portal-upgrade-MYNAME, one commit of only the planned files, push (hand me the sign-in), pull request into qa with the five-line description, then read me the robot review in plain English. Do not merge; the instructor looks first. The point of this round: you just ran the whole loop yourself. That is the skill.</div>
 </div>
 <div class="you"><b>What you do</b>This one is yours alone, after class or when the instructor says there is time. Same rhythm: read the plan, and when it looks right paste part two, your approval rides on its first word. Complete the sign-in, click the PR link, read the review.</div>
 </div>
@@ -375,7 +384,8 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 function cp(btn,id){
   var el=document.getElementById(id);
   var t=el.innerText;
-  function done(){btn.textContent='Copied';btn.classList.add('done');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('done')},1600)}
+  var orig=btn.textContent;
+  function done(){btn.textContent='Copied';btn.classList.add('done');setTimeout(function(){btn.textContent=orig;btn.classList.remove('done')},1600)}
   function manual(){
     var r=document.createRange();r.selectNodeContents(el);
     var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);
