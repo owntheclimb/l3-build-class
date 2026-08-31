@@ -97,8 +97,25 @@ input[type=search]:focus{box-shadow:0 0 0 3px rgba(14,116,144,.15)}
 
 <script>
 "use strict";
-const AI="AI & Agents",WEB="Web Basics",CODE="Code & Tools",SHIP="Shipping",LP="Laravel & Pipeline";
+const AI="AI & Agents",WEB="Web Basics",CODE="Code & Tools",SHIP="Shipping",LP="Laravel & Pipeline",DES="Design";
 const TERMS=[
+[AI,"Anti-prompt","A prompt that turns the AI into its own harshest reviewer: a new role, the opposite goal, a score that starts at zero, and a list of every problem it can find. First you build, then you attack what you built."],
+[AI,"Evil twin","For every test that proves a feature works, a twin test that tries to break it: an empty list, a too-long title, a request through the wrong door. Happy tests alone let bugs walk through."],
+[AI,"Approval gate","A word the AI must wait for before it may act, like approved or land. The word rides on the front of the next pasted prompt, so the human stays the decision-maker without typing a thing."],
+[AI,"Repeatable prompt","A prompt built to be pasted again and again. Each pass scores what exists, fixes what is broken, and improves the weakest part, and you control the loop by deciding when to paste it next."],
+[CODE,"CSRF","Cross-Site Request Forgery, an attack where another website tricks your browser into submitting a form somewhere you are signed in. Laravel blocks it by stamping every save with a token, and a save without the stamp gets error 419."],
+[CODE,"Validation","The rules a server checks before accepting data: the title fits the limit, the priority is a real number, the date is really a date. Good validation refuses bad data politely instead of crashing on it."],
+[CODE,"Pagination","Serving a long list in pages instead of all at once. The page size needs a ceiling and a floor; today's famous class bug was a negative page size that slipped under the cap and returned every row."],
+[CODE,"Regression test","A test written right after a bug is fixed, proving that exact bug can never quietly come back."],
+[CODE,"Soft delete","Marking a record as deleted instead of truly erasing it, so it vanishes from the app but can be restored. This company's template uses soft deletes on every table."],
+[CODE,"Rate limiting","A cap on how many requests one visitor can make per minute, so a public endpoint cannot be hammered. The class portal allows sixty writes a minute."],
+[SHIP,"Rollback","The plan for undoing a change after it ships, written down before you ship it. In our pull requests it is one line: revert this commit."],
+[SHIP,"Code review","A second set of eyes reading your change before it joins the shared code, sometimes human, sometimes robot. The findings are advice: the real ones get fixed, and the intentional ones get answered."],
+[SHIP,"Merge","The moment a pull request's changes join the shared branch and become part of everyone's code, which is why the class merges together, on the instructor's word."],
+[DES,"UX","User Experience, how the thing feels to use: can you find what you need, does it respond quickly, does anything confuse you. A beautiful page with confusing behavior is bad UX."],
+[DES,"UI","User Interface, what the thing looks like: the buttons, colors, spacing, and type. UI is the visual layer, and UX is how using it feels; a page can score high on one and low on the other."],
+[DES,"Design tokens","The named list of colors, sizes, and shadows defined once at the top of a stylesheet and reused by name everywhere. Change one token and the whole design updates in one place."],
+[DES,"Accessibility","Building so everyone can use the page: keyboard focus you can see, motion that switches off for people who need stillness, text you can actually read. The reduced-motion rule in the homework is accessibility in action."],
 [LP,"Laravel","The PHP framework this company builds on; it gives structure for routes, models, pages, and tests out of the box."],
 [LP,"The template","The company starter repo every app begins from: login, permissions, logs, and conventions already wired in."],
 [LP,"Migration","A small script that changes the database's shape, like adding a table, so every environment can replay the same change."],
@@ -201,7 +218,7 @@ function updateCount(){
   const flipped=document.querySelectorAll(".fc.flip").length;
   const total=document.querySelectorAll(".fc").length;
   $("#count").textContent=flipped+" / "+total+" flipped"}
-(function(){const cats=[null,LP,AI,WEB,CODE,SHIP];const w=$("#cats");
+(function(){const cats=[null,LP,AI,WEB,CODE,SHIP,DES];const w=$("#cats");
   cats.forEach(c=>{const b=document.createElement("button");b.className="fchip";
     b.textContent=c||"All";b.setAttribute("aria-pressed",String(view.cat===c));
     b.onclick=()=>{view.cat=c;document.querySelectorAll("#cats .fchip").forEach((x,i)=>x.setAttribute("aria-pressed",String(cats[i]===c)));render()};

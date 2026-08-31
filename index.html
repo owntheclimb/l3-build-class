@@ -110,11 +110,13 @@ End your reply with the single line: Ready for Prompt 2.</div>
 <h4>How this prompt is built</h4>
 <ul>
 <li><b>"WHY WE ARE HERE..."</b>Every strong prompt opens with context. When Claude knows what is happening, why it matters, and what a good outcome looks like, it makes better decisions for the whole session.</li>
+<li><b>"THINGS ABOUT THIS ENVIRONMENT..."</b>We tell Claude up front what is unusual about this machine: the shell, the http address, the broken sign-in, the leftover files. That one paragraph is why it can diagnose problems all day instead of guessing at them. The same trick works at home: tell your AI about your machine, and it becomes twice as useful.</li>
 <li><b>"YOU ARE: a senior Laravel engineer"</b>Giving the AI a role tells it which habits to use. A senior engineer reads the code before changing anything and respects the rules of the house, so that is who we ask Claude to be.</li>
 <li><b>"at most 14 SHORT lines... plain language"</b>A limit keeps the answer readable. Without one, you would get a wall of text that nobody in the room has time to read.</li>
 <li><b>"mark them OFF LIMITS"</b>You set the boundaries before any work exists, and Claude carries those boundaries for the rest of the session.</li>
 <li><b>"say NOT FOUND instead of guessing"</b>This is the honesty rule. An AI that is allowed to say it does not know stops inventing answers.</li>
-<li><b>"THE FIX-IT-YOURSELF RULE"</b>When something breaks, Claude diagnoses it and repairs it on its own, using everything this briefing taught it about the machine it is standing on. It only hands you a sentence when the fix truly needs a human, like a sign-in window or the instructor.</li>
+<li><b>"THE FIX-IT-YOURSELF RULE"</b>When something breaks, Claude diagnoses it and repairs it on its own, using everything this briefing taught it about this machine. It only hands you a sentence when the fix truly needs a human, like a sign-in window or the instructor.</li>
+<li><b>"THE NEVER-DESTROY RULE"</b>A few commands erase things in a way nobody can undo during a class, so we ban them by name before any work starts. Repairs may add and edit, and they may never wipe. If Claude ever believes wiping is the only way forward, it stops and asks a human first.</li>
 <li><b>"THE CHECKPOINT RULE"</b>Every prompt you paste quietly finishes or repairs whatever the last step left behind before starting its own work. This is how the whole room ends up in the same place, even when different machines take different little detours.</li>
 </ul>
 </div>
@@ -162,6 +164,8 @@ Then STOP and wait. Do not build anything until my next message begins with the 
 <li><b>"The feature, exactly:"</b>We spell out the exact shape of the feature so that everyone in the room builds the same thing. A vague wish would produce fifteen different apps.</li>
 <li><b>"in exactly this shape"</b>A structured plan can be checked in about a minute. When a plan is one long paragraph, the missing pieces hide inside it.</li>
 <li><b>"OUT OF SCOPE, always"</b>Writing down what we will not touch protects us far better than hoping the AI stays away from it on its own.</li>
+<li><b>"four REQUIRED CHECKS"</b>Before it may build, Claude has to verify four facts about this exact repo and write the answers into the plan: the names are free, the page will not be swallowed by another route, the request protection is handled, and the table name is safe. Making the AI check its assumptions in writing catches problems while they are still free to fix.</li>
+<li><b>"portal_tasks_MYNAME"</b>The whole class shares one practice database, so every student's table carries their own name. This is how real companies keep many people from colliding inside one shared system, and today you get to feel why it matters.</li>
 <li><b>"until my next message begins with: approved"</b>The word approved works like a password for permission, and it keeps you the decision-maker. The password sits on the first line of Prompt 3, so pasting the next prompt is how you say yes.</li>
 </ul>
 </div>
@@ -195,7 +199,9 @@ Then end with, exactly: YOUR TURN: open the browser on the machine where this pr
 <li><b>"approved. Build EXACTLY the plan"</b>The first word is the password from Prompt 2, so pasting this prompt is what opens the gate. The word EXACTLY matters just as much, because most bugs are born when a build quietly drifts away from its plan.</li>
 <li><b>"copy the pattern of the nearest existing example"</b>The codebase itself is the best style guide we have. This one line keeps the new code looking like it has always belonged here.</li>
 <li><b>"WORKS / CHECKED THE CODE / NOT TESTED"</b>These are the honesty labels. When an AI tells you something works, that means very little until you know whether it actually ran the code or only wrote it.</li>
-<li><b>"showing me a piece of the JSON"</b>We ask for real data on the screen because evidence is worth more than confidence.</li>
+<li><b>"Writes... will probably come back 419"</b>The company template protects every save with a stamped pass called a CSRF token, and a save that arrives without the stamp is refused with error 419. We tell Claude to send the stamp with every save, and we forbid switching the protection off to make the error go away. Security gets used properly; it never gets disabled for convenience.</li>
+<li><b>"Sample data and invented names only"</b>Nothing real about the company or its people ever goes into a practice app, a test, or a prompt. Made-up tasks teach exactly as well, and they can never leak anything that matters.</li>
+<li><b>"showing me a piece of the JSON"</b>We ask to see a piece of the actual data that came back, because a claim with the result showing next to it is one you can actually trust.</li>
 <li><b>"YOUR TURN: open your browser"</b>You are the quality department today. The moment you see your own page in your own browser, this class stops being theory.</li>
 </ul>
 </div>
@@ -301,6 +307,7 @@ End with: Ready for Prompt 7. Then wait quietly: do not push new commits, re-run
 <li><b>"the way this company's engineers do"</b>At this point the class stops being an exercise. Your work goes through the same branches, the same pipeline, and the same robot reviewer that this company's engineers face every day.</li>
 <li><b>"tell me to complete it and WAIT for me"</b>Sign-in windows belong to humans. Claude is taught to hand them to you and wait, which prevents the silent hang, the single most confusing failure a beginner can hit.</li>
 <li><b>"five short lines: WHAT, WHY, HOW TESTED, RISK, ROLLBACK"</b>This five-line description is what makes a reviewer trust a submission. Thinking about how you would undo a change before you merge it is a habit of senior engineers.</li>
+<li><b>"public on purpose... once the hub login fix lands"</b>The description says out loud that the page is public by design, why that is safe today, and when it changes. When the reviewer arrives, the explanation is already sitting there waiting, and a declared decision reads very differently from an oversight.</li>
 <li><b>"translate every finding into plain English"</b>Robot reviews arrive written for engineers. Asking Claude to translate each finding into plain English means you can read them without fear.</li>
 <li><b>"DO NOT MERGE ANYTHING"</b>Merging changes the shared codebase that everyone works in, so that decision stays with humans. Today the whole class makes it together.</li>
 </ul>
@@ -334,7 +341,8 @@ Then end with this, word for word: You just read a real codebase, planned a feat
 <div class="explain">
 <h4>How this prompt is built</h4>
 <ul>
-<li><b>"go through every real one, smallest first"</b>The robot's findings are expert advice arriving at the cheapest possible moment to act on it. We clear every real one before landing, so what we ship carries no known problems into the shared codebase. Going smallest-first keeps each fix easy to check.</li>
+<li><b>"go through every real one, smallest first"</b>The robot's findings arrive at the best possible time: before the merge, while fixing is still cheap. We clear every real one before landing, so nothing we ship carries a known problem, and going smallest-first keeps each fix easy to check.</li>
+<li><b>"do NOT add any login requirement"</b>A reviewer finding is advice, and advice can be answered. When a finding asks for something our design leaves out on purpose, Claude writes one plain sentence explaining the intent, and the finding is answered. Real engineering judgment includes knowing when a reviewer needs an explanation instead of a code change.</li>
 <li><b>"until my next message begins with: land"</b>This is the second password of the day, and it gets pasted from its own box rather than typed from memory. An action you cannot undo deserves an explicit human word, every single time.</li>
 <li><b>"where I can watch the deployment"</b>A good deploy is boring and visible. Watching your own commit appear in a real company environment is the payoff of the whole class.</li>
 <li><b>"no retries, no side doors"</b>When shipping misbehaves, a professional stops, observes, and reports what happened. We do not let Claude keep pushing buttons and hoping.</li>
